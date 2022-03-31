@@ -6,8 +6,8 @@
 
 | 개발자 | 역할 |
 | ----- | ----------- |
-| <a href="https://github.com/ICE0208"><img src="https://avatars.githubusercontent.com/u/46257328?v=4" title="ICE0208" width="45" height="45"></a> | 프로그램 로직 설계 |
-| <a href="https://github.com/jbkim1218"><img src="https://avatars.githubusercontent.com/u/84824637?v=4" title="jbkim1218" width="45" height="45"></a> | 프로그램 로직 설계 |
+| <a href="https://github.com/ICE0208"><img src="https://avatars.githubusercontent.com/u/46257328?v=4" title="ICE0208" width="45" height="45"></a> | 프로그램 기능별 화면 이동 개발 / 비밀번호 관련 기능 개발, GUI 프로그램으로 변환 작업 |
+| <a href="https://github.com/jbkim1218"><img src="https://avatars.githubusercontent.com/u/84824637?v=4" title="jbkim1218" width="45" height="45"></a> | 프로그램 전체 로직 설계 / 기본적인 입출력 개발 / 파일 입출력을 이용한 기능 개발 / GUI 디자인 구상 |
 
 
 
