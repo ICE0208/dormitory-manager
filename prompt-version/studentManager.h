@@ -6,12 +6,12 @@
 
 
 typedef struct {
-	char *name;
+	char name[20];
 	int snum;
 } STUDENT;
 
 typedef struct dong {
-	char *name;
+	char name[20];
 	STUDENT students[15][20][3];
 	struct dong* next;
 } DONG;
@@ -24,5 +24,7 @@ void setNewDong(char* dongName);
 int removeDong(int index);
 void showAllDong();
 void setDefaultInfo(DONG* dong);
-void saveAllStudent();
-void saveDong(DONG* dong, FILE* fp);
+void saveAllInfo();
+void saveInfo(DONG* dong, FILE* fp);
+void loadAllInfo();
+DONG* loadInfo(FILE* fp);

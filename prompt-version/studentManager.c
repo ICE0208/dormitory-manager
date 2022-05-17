@@ -9,7 +9,8 @@ void setDongList() {
 void setNewDong(char* dongName) {
 	DONG* newDong = (DONG*)malloc(sizeof(DONG));
 	newDong->next = NULL;
-	newDong->name = dongName;
+	strncpy(newDong->name, dongName, strlen(dongName));
+	newDong->name[strlen(dongName)] = '\0';
 	setDefaultInfo(newDong);
 	tail->next = newDong;
 	tail = tail->next;
@@ -39,7 +40,7 @@ int removeDong(int index) {
 void showAllDong() {
 	DONG* cur = head->next;
 	while (cur != NULL) {
-		printf("%s", cur->students[0][0][0].name);
+		printf("%s\n", cur->students[0][0][0].name);
 		printf("%s\n", cur->name);
 		cur = cur->next;
 	}
@@ -50,31 +51,59 @@ void setDefaultInfo(DONG* dong) {
 	for (int x = 0; x < 15; x++) {
 		for (int y = 0; y < 20; y++) {
 			for (int z = 0; z < 3; z++) {
-				dong->students[x][y][z].name = "홍길동";
+				strcpy(dong->students[x][y][z].name, "홍길동");
 				dong->students[x][y][z].snum = 123;
 			}
 		}
 	}
 }
 
-void saveAllStudent() {
+void saveAllInfo() {
 	FILE* fp = fopen("c:\\temp\\info.txt", "wb");
 	DONG* cur = head->next;
 	while (cur != NULL) {
-		saveDong(cur, fp);
+		saveInfo(cur, fp);
 		cur = cur->next;
 	}
 	fclose(fp);
-	printf("저장 완료");
+	printf("저장 완료\n");
 }
 
-void saveDong(DONG* dong, FILE* fp) {
+void saveInfo(DONG* dong, FILE* fp) {
+	fwrite(dong->name, sizeof(20), 1, fp);
 	for (int x = 0; x < 15; x++) {
 		for (int y = 0; y < 20; y++) {
 			for (int z = 0; z < 3; z++) {
-				STUDENT stu = dong->students[x][y][z];
-				fwrite(&stu, sizeof(STUDENT), 1, fp);
+				fwrite(&(dong->students[x][y][z]), sizeof(STUDENT), 1, fp);
 			}
 		}
 	}
+}
+
+void loadAllInfo() {
+	FILE* fp = fopen("c:\\temp\\info.txt", "rb");
+	while (1) {
+		DONG* info;
+		if ((info = loadInfo(fp)) == NULL) break;
+		tail->next = info;
+		tail = tail->next;
+	}
+	fclose(fp);
+}
+
+DONG* loadInfo(FILE* fp) {
+	DONG* tempInfo = (DONG*)malloc(sizeof(DONG));
+	tempInfo->next = NULL;
+	int check;
+	check = fread((tempInfo->name), sizeof(20), 1, fp);
+	if (check != 1) return NULL;
+	for (int x = 0; x < 15; x++) {
+		for (int y = 0; y < 20; y++) {
+			for (int z = 0; z < 3; z++) {
+				check = fread(&(tempInfo->students[x][y][z]), sizeof(STUDENT), 1, fp);
+				if (check != 1) return NULL;
+			}
+		}
+	}
+	return tempInfo;
 }
