@@ -1,8 +1,9 @@
 ﻿#include <stdio.h>
 #include "fileManager.h"
+#include "mainScreen.h"
 
 int main() {
-	test();
+	mainScreen();
 
 	system("pause");
 

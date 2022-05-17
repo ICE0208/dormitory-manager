@@ -142,9 +142,11 @@
   <ItemGroup>
     <ClCompile Include="fileManager.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="mainScreen.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileManager.h" />
+    <ClInclude Include="mainScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
