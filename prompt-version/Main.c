@@ -13,16 +13,7 @@ int main() {
 	setNewDong("5동");
 	setNewDong("6동");
 	showAllDong();
-	removeDong(3);
-	showAllDong();
-	removeDong(1);
-	removeDong(1);
-	removeDong(1);
-	removeDong(1);
-	showAllDong();
-	removeDong(1);
-	showAllDong();
-	removeDong(1);
+	saveAllStudent();
 
 	// mainScreen();
 
