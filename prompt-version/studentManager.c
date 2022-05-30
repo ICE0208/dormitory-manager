@@ -6,13 +6,17 @@ void setDongList() {
 	head->next = NULL;
 }
 
-void setNewDong(char* dongName) {
+int setNewDong(char* dongName) {
+	int curCount = getDongCount();
+	if (curCount >= 20) return -1;
+
 	DONG* newDong = (DONG*)malloc(sizeof(DONG));
 	newDong->next = NULL;
 	strcpy(newDong->name, dongName);
 	setDefaultInfo(newDong);
 	tail->next = newDong;
 	tail = tail->next;
+	return 0;
 }
 
 int removeDong(int index) {
