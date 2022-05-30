@@ -9,8 +9,7 @@ void setDongList() {
 void setNewDong(char* dongName) {
 	DONG* newDong = (DONG*)malloc(sizeof(DONG));
 	newDong->next = NULL;
-	strncpy(newDong->name, dongName, strlen(dongName));
-	newDong->name[strlen(dongName)] = '\0';
+	strcpy(newDong->name, dongName);
 	setDefaultInfo(newDong);
 	tail->next = newDong;
 	tail = tail->next;
@@ -100,11 +99,13 @@ DONG* loadInfo(FILE* fp) {
 	DONG* tempInfo = (DONG*)malloc(sizeof(DONG));
 	tempInfo->next = NULL;
 	int check;
-	check = fread((tempInfo->name), sizeof(20), 1, fp);
+	char tempName[20] = { '\0' };
+	check = fread(tempName, sizeof(20), 1, fp);
 	if (check != 1) {
 		free(tempInfo);
 		return NULL;
 	}
+	strcpy(tempInfo->name, tempName);
 	for (int x = 0; x < 15; x++) {
 		for (int y = 0; y < 20; y++) {
 			for (int z = 0; z < 3; z++) {

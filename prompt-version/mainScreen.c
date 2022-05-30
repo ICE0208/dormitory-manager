@@ -1,4 +1,5 @@
 ﻿#include "mainScreen.h"
+#include "studentManager.h"
 
 void mainScreen() {
     int selected;
@@ -11,6 +12,10 @@ void mainScreen() {
 
 void mainMoveTo(int option) {
     printf("%d로 이동합니다.\n", option);
+    switch (option) {
+    case 3:
+        showAllDong();
+    }
 }
 
 void mainShowOption() {

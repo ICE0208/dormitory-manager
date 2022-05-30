@@ -5,23 +5,12 @@
 
 int main() {
 
-	setDongList();
-	loadAllInfo();
+	setDongList(); // 동 연결리스트를 만듭니다.
+	loadAllInfo(); // 저장된 파일로부터 정보를 불러와서 연결리스트에 추가합니다.
 
+	
 
-	//setNewDong("1동");
-	//setNewDong("2동");
-	//setNewDong("3동");
-	//setNewDong("4동");
-	//setNewDong("5동");
-	//setNewDong("6동");
-	setNewDong("신관");
-	//removeDong(1);
-
-	showAllDong();
-	saveAllInfo();
-
-	// mainScreen();
+	 mainScreen(); // 초기 화면을 보여줍니다.
 
 	system("pause");
 
