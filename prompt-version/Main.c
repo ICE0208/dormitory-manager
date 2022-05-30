@@ -15,9 +15,11 @@ int main() {
 	//setNewDong("4동");
 	//setNewDong("5동");
 	//setNewDong("6동");
+	setNewDong("신관");
+	//removeDong(1);
 
 	showAllDong();
-	//saveAllInfo();
+	saveAllInfo();
 
 	// mainScreen();
 
