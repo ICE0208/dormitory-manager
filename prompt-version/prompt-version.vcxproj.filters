@@ -27,6 +27,9 @@
     <ClCompile Include="studentManager.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="dongScreen.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileManager.h">
@@ -36,6 +39,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="studentManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="dongScreen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

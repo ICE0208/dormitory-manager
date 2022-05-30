@@ -1,5 +1,6 @@
 ﻿#include "mainScreen.h"
 #include "studentManager.h"
+#include "dongScreen.h"
 
 void mainScreen() {
     int selected;
@@ -13,17 +14,17 @@ void mainScreen() {
 void mainMoveTo(int option) {
     printf("%d로 이동합니다.\n", option);
     switch (option) {
-    case 3:
-        showAllDong();
+    case 1:
+        dongScreen();
     }
 }
 
 void mainShowOption() {
     printf("[초기 화면]\n\n");
-    printf("1. 동 선택\n");
-    printf("2. 학생 찾기\n");
-    printf("3. 프로그램 설정\n");
-    printf("0. 프로그램 종료\n");
+    printf("[1]. 동 선택\n");
+    printf("[2]. 학생 찾기\n");
+    printf("[3]. 프로그램 설정\n");
+    printf("[0]. 프로그램 종료\n\n");
 }
 
 int mainGetUserInput() {

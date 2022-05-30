@@ -5,6 +5,8 @@
 #include <string.h>
 #include <direct.h>
 
+#define CLEAR "cls"
+
 
 typedef struct {
 	char name[20];
@@ -24,6 +26,7 @@ void setDongList();
 void setNewDong(char* dongName);
 int removeDong(int index);
 void showAllDong();
+int getDongCount();
 void setDefaultInfo(DONG* dong);
 void saveAllInfo();
 void saveInfo(DONG* dong, FILE* fp);

@@ -140,12 +140,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dongScreen.c" />
     <ClCompile Include="fileManager.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="mainScreen.c" />
     <ClCompile Include="studentManager.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dongScreen.h" />
     <ClInclude Include="fileManager.h" />
     <ClInclude Include="mainScreen.h" />
     <ClInclude Include="studentManager.h" />

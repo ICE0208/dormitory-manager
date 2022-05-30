@@ -38,12 +38,25 @@ int removeDong(int index) {
 
 void showAllDong() {
 	DONG* cur = head->next;
+	int index = 1;
 	while (cur != NULL) {
-		printf("%s\n", cur->students[0][0][0].name);
-		printf("%s\n", cur->name);
+		printf("[%d]: %s\t", index, cur->students[0][0][0].name);
 		cur = cur->next;
+
+		if (index % 3 == 0) printf("\n");
+		index++;
 	}
 	printf("\n");
+}
+
+int getDongCount() {
+	DONG* cur = head->next;
+	int count = 0;
+	while (cur != NULL) {
+		count++;
+		cur = cur->next;
+	}
+	return count;
 }
 
 void setDefaultInfo(DONG* dong) {
