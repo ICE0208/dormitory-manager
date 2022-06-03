@@ -6,3 +6,5 @@ void dongScreen();
 void dongShowOption();
 void dongMoveTo(int option);
 int dongGetUserInput();
+
+void deleteDong();

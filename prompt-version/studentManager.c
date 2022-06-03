@@ -44,7 +44,7 @@ void showAllDong() {
 	DONG* cur = head->next;
 	int index = 1;
 	while (cur != NULL) {
-		printf("[%d]: %s\t", index, cur->students[0][0][0].name);
+		printf("[%d]: %s\t", index, cur->name);
 		cur = cur->next;
 
 		if (index % 3 == 0) printf("\n");
@@ -61,6 +61,19 @@ int getDongCount() {
 		cur = cur->next;
 	}
 	return count;
+}
+
+char* getDongName(int index) {
+	int i = 1;
+	DONG* cur = head->next;
+	while (cur != NULL) {
+		if (i == index) {
+			return cur->name;
+		}
+		i += 1;
+		cur = cur->next;
+	}
+	return "<ERROR>";
 }
 
 void setDefaultInfo(DONG* dong) {
@@ -83,7 +96,7 @@ void saveAllInfo() {
 		cur = cur->next;
 	}
 	fclose(fp);
-	printf("저장 완료\n");
+	//printf("저장 완료\n");
 }
 
 void saveInfo(DONG* dong, FILE* fp) {

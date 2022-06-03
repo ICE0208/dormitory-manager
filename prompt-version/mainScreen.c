@@ -4,11 +4,12 @@
 
 void mainScreen() {
     int selected;
-
-    system(CLEAR);
-    mainShowOption();
-    selected = mainGetUserInput();
-    mainMoveTo(selected);
+    while (1) {
+        system(CLEAR);
+        mainShowOption();
+        selected = mainGetUserInput();
+        mainMoveTo(selected);
+    }
 }
 
 void mainMoveTo(int option) {

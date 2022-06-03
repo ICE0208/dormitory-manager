@@ -23,10 +23,11 @@ DONG* head;
 DONG* tail;
 
 void setDongList();
-void setNewDong(char* dongName);
+int setNewDong(char* dongName);
 int removeDong(int index);
 void showAllDong();
 int getDongCount();
+char* getDongName(int index);
 void setDefaultInfo(DONG* dong);
 void saveAllInfo();
 void saveInfo(DONG* dong, FILE* fp);
