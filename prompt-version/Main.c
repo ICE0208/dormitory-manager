@@ -10,7 +10,7 @@ int main() {
 
 	
 
-	 mainScreen(); // 초기 화면을 보여줍니다.
+	mainScreen(); // 초기 화면을 보여줍니다.
 
 	system("pause");
 

@@ -8,5 +8,5 @@
 void mainScreen();
 void mainShowOption();
 int mainGetUserInput();
-void clearBuffer();
+int clearBuffer();
 void mainMoveTo(int option);

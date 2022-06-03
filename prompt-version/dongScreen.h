@@ -8,3 +8,4 @@ void dongMoveTo(int option);
 int dongGetUserInput();
 
 void deleteDong();
+void addDong();

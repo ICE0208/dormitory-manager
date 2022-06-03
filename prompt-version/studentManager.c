@@ -43,11 +43,13 @@ int removeDong(int index) {
 void showAllDong() {
 	DONG* cur = head->next;
 	int index = 1;
-	while (cur != NULL) {
-		printf("[%d]: %s\t", index, cur->name);
+	while (1) {
+		printf("[%02d]: %-20s", index, cur->name);
 		cur = cur->next;
+		if (cur == NULL) break;
 
 		if (index % 3 == 0) printf("\n");
+		else printf(" | ");
 		index++;
 	}
 	printf("\n");
@@ -100,7 +102,7 @@ void saveAllInfo() {
 }
 
 void saveInfo(DONG* dong, FILE* fp) {
-	fwrite(dong->name, sizeof(20), 1, fp);
+	fwrite(dong->name, DONGNAMEMAX, 1, fp);
 	for (int x = 0; x < 15; x++) {
 		for (int y = 0; y < 20; y++) {
 			for (int z = 0; z < 3; z++) {
@@ -129,8 +131,8 @@ DONG* loadInfo(FILE* fp) {
 	DONG* tempInfo = (DONG*)malloc(sizeof(DONG));
 	tempInfo->next = NULL;
 	int check;
-	char tempName[20] = { '\0' };
-	check = fread(tempName, sizeof(20), 1, fp);
+	char tempName[DONGNAMEMAX] = { '\0' };
+	check = fread(tempName, DONGNAMEMAX, 1, fp);
 	if (check != 1) {
 		free(tempInfo);
 		return NULL;
