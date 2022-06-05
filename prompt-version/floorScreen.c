@@ -12,7 +12,7 @@ void floorScreen(int dongIndex) {
 		floorShowOption(curDongName);
 		selected = floorGetUserInput(curDongName);
 		if (selected == 0) break; // 뒤로 가기 옵션
-		floorMoveTo(selected);
+		floorMoveTo(dongIndex, selected);
 	}
 }
 
@@ -26,8 +26,7 @@ void floorShowOption(char* dongName) {
 		printf("[%02d] %2d층\t", i, i);
 		if (i % 3 == 0) printf("\n");
 	}
-	printf("[0] 뒤로 가기\n");
-	printf("\n");
+	printf("[0] 뒤로 가기\n\n");
 }
 
 int floorGetUserInput(char* dongName) {
@@ -40,19 +39,22 @@ int floorGetUserInput(char* dongName) {
 		clearBuffer();
 
 		// 올바른 값 입력했을 때 그 값을 리턴
-		if (0 <= value && value <= 15) return value;
+		if (0 <= value && value <= FLOORMAX) return value;
 
+		// 잘못된 값 입력했을 때
 		system(CLEAR);
 		floorShowOption(dongName);
-		printf("<잘못된 값을 입력하셨습니다. 다시 입력해주세요.>\n");
+		printInputErrMsg();
 	}
 }
 
 // 층 화면에서 선택한 옵션에 따라 할 것들
-void floorMoveTo(int option) {
+void floorMoveTo(int dongIndex, int option) {
 	// 층을 선택했을 때
 	if (1 <= option && option <= FLOORMAX) {
+		DONG* curDONG = getDONG(dongIndex);
 		// 이 동의 층으로 이동
+		hoScreen(curDONG, option);
 		return;
 	}
 	// 1 <= option <= FLOORMAX 외에 다른 값이 들어올 수 없음

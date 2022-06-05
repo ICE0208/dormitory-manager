@@ -15,16 +15,14 @@
 
 | 작업중 | 완료 | 기능 |
 | -- | -- |----------- |
-| ☑️ |  | 프로그램 로직 설계 |
-|  |  | 프로그램 기능별 화면 이동 |
+| ☑️ | ☑️ | 프로그램 로직 설계 |
+| ☑️ |  | 프로그램 기능별 화면 이동 |
 |  |  | 기숙사생의 정보를 입력 후 파일로 입출력 |
 |  |  | 비밀번호를 이용한 관리 권한 확인 |
-|  |  | GUI 프로그램으로 변환 |
 |   |   | ( ↓ 추가 예정 ↓ ) |
 
 ## 🎨 개발 언어
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 
 ## 🎪 개발 환경
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)

@@ -144,17 +144,21 @@
     <ClCompile Include="extraFunc.c" />
     <ClCompile Include="fileManager.c" />
     <ClCompile Include="floorScreen.c" />
+    <ClCompile Include="hoScreen.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="mainScreen.c" />
     <ClCompile Include="studentManager.c" />
+    <ClCompile Include="stuScreen.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dongScreen.h" />
     <ClInclude Include="extraFunc.h" />
     <ClInclude Include="fileManager.h" />
     <ClInclude Include="floorScreen.h" />
+    <ClInclude Include="hoScreen.h" />
     <ClInclude Include="mainScreen.h" />
     <ClInclude Include="studentManager.h" />
+    <ClInclude Include="stuScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
