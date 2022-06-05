@@ -6,6 +6,7 @@
 void mainScreen() {
     int selected;
     while (1) {
+        setTitle(L"메인 화면");
         system(CLEAR);
         mainShowOption();
         selected = mainGetUserInput();
@@ -26,7 +27,7 @@ void mainMoveTo(int option) {
 }
 
 void mainShowOption() {
-    printf("[초기 화면]\n\n");
+    printf("[메인 화면]\n\n");
     printf("[1] 동 선택\n");
     printf("[2] 학생 찾기\n");
     printf("[3] 프로그램 설정\n");

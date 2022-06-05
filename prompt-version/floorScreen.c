@@ -7,6 +7,7 @@ void floorScreen(int dongIndex) {
 	int selected;
 
 	while (1) {
+		setTitle(L"층 선택 화면");
 		system(CLEAR);
 		floorShowOption(curDongName);
 		selected = floorGetUserInput(curDongName);

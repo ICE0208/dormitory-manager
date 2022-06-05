@@ -10,6 +10,7 @@
 void dongScreen() {
     int selected;
     while (1) {
+        setTitle(L"동 선택 화면");
         dongShowOption();
         selected = dongGetUserInput();
         if (selected == 0) {
