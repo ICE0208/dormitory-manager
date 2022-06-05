@@ -18,8 +18,8 @@
 #define HOMAX 20
 #endif
 
-#ifndef SMAX
-#define SMAX 3
+#ifndef STUMAX
+#define STUMAX 3
 #endif
 
 #ifndef DEFAULT_TITLE

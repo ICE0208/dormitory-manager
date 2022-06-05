@@ -15,7 +15,7 @@ typedef struct {
 
 typedef struct dong {
 	char name[TEXTMAX];
-	STUDENT students[FLOORMAX][HOMAX][SMAX];
+	STUDENT students[FLOORMAX][HOMAX][STUMAX];
 	struct dong* next;
 } DONG;
 
