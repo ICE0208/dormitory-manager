@@ -10,8 +10,10 @@
 
 
 typedef struct {
-	char name[20];
-	int snum;
+	char name[TEXTMAX]; // 이름
+	int snum; // 학번
+	char phoneNum[TEXTMAX]; // 전화 번호
+	int breakfast; // 조식 여부 (0: x, 1: o)
 } STUDENT;
 
 typedef struct dong {

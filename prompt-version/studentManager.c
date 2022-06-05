@@ -42,11 +42,16 @@ int removeDong(int index) {
 
 void showAllDong() {
 	DONG* cur = head->next;
+	if (cur == NULL) { // 동이 하나도 없을 때
+		printf("<등록된 동이 없습니다.>\n");
+		return;
+	}
+
 	int index = 1;
 	while (1) {
 		printf("[%02d]: %-20s", index, cur->name);
 		cur = cur->next;
-		if (cur == NULL) break;
+		if (cur == NULL) break; // while 문을 빠져나갈 조건
 
 		if (index % 3 == 0) printf("\n");
 		else printf(" | ");
@@ -78,12 +83,15 @@ char* getDongName(int index) {
 	return "<ERROR>";
 }
 
+// 동을 하나 생성할 때 각 학생의 정보의 초깃값을 지정하기 위한 함수이다.
 void setDefaultInfo(DONG* dong) {
 	for (int x = 0; x < 15; x++) {
 		for (int y = 0; y < 20; y++) {
 			for (int z = 0; z < 3; z++) {
-				strcpy(dong->students[x][y][z].name, "미지정");
-				dong->students[x][y][z].snum = 000;
+				strcpy(dong->students[x][y][z].name, "미지정"); // 이름 미지정
+				dong->students[x][y][z].snum = 000; // 학번 초깃값
+				strcpy(dong->students[x][y][z].phoneNum, "010-xxxx-xxxx"); // 전화번호 초깃값
+				dong->students[x][y][z].breakfast = 0; // 조식 여부 초깃값 (x)
 			}
 		}
 	}
