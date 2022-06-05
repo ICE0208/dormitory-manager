@@ -4,10 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <direct.h>
-
-#define CLEAR "cls"
-#define TEXTMAX 20
-
+#include "extraFunc.h"
 
 typedef struct {
 	char name[TEXTMAX]; // 이름
@@ -18,7 +15,7 @@ typedef struct {
 
 typedef struct dong {
 	char name[TEXTMAX];
-	STUDENT students[15][20][3];
+	STUDENT students[FLOORMAX][HOMAX][SMAX];
 	struct dong* next;
 } DONG;
 
