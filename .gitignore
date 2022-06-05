@@ -1,7 +1,5 @@
 memo.txt
 
-memo.txt
-
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudio,c,c++
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,c,c++
@@ -113,11 +111,6 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-
-# Visual Studio 2015/2017 cache/options directory
-.vs/
-# Uncomment if you have tasks that create the project's static files in wwwroot
-#wwwroot/
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
