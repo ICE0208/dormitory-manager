@@ -40,6 +40,7 @@ int removeDong(int index) {
 	return 0;
 }
 
+// 등록된 동을 인덱스와 함께 모두 출력해주는 함수입니다.
 void showAllDong() {
 	DONG* cur = head->next;
 	if (cur == NULL) { // 동이 하나도 없을 때
@@ -70,6 +71,8 @@ int getDongCount() {
 	return count;
 }
 
+// 특정 인덱스에 저장되어 있는 동의 이름을 리턴해주는 함수이다.
+// 인덱스는 1번부터 시작한다.
 char* getDongName(int index) {
 	int i = 1;
 	DONG* cur = head->next;
@@ -83,7 +86,7 @@ char* getDongName(int index) {
 	return "<ERROR>";
 }
 
-// 동을 하나 생성할 때 각 학생의 정보의 초깃값을 지정하기 위한 함수이다.
+// 동을 하나 생성할 때 각 학생의 정보의 초깃값을 지정하기 위한 함수입니다.
 void setDefaultInfo(DONG* dong) {
 	for (int x = 0; x < 15; x++) {
 		for (int y = 0; y < 20; y++) {

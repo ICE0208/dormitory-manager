@@ -1,6 +1,8 @@
 ﻿#define _CRT_NONSTDC_NO_WARNINGS    // 비표준 함수를 사용했을 때 에러 방지
 
 #include "dongScreen.h"
+#include "extraFunc.h"
+#include "floorScreen.h"
 #include "studentManager.h"
 #include "mainScreen.h"
 #include <conio.h>
@@ -25,10 +27,13 @@ void dongShowOption() {
 }
 
 void dongMoveTo(int option) {
+    // 동을 선택했을 때
     if (1 <= option && option <= getDongCount()) {
-        printf("%d로 이동합니다.\n", option);
-        return;
+        floorScreen(option);
+        return; //
     }
+
+    // 동이 아닌 다른 옵션을 선택했을 때
     switch (option) {
     case 21:
         addDong();

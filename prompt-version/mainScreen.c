@@ -1,4 +1,5 @@
-﻿#include "mainScreen.h"
+﻿#include "extraFunc.h"
+#include "mainScreen.h"
 #include "studentManager.h"
 #include "dongScreen.h"
 
@@ -46,13 +47,4 @@ int mainGetUserInput() {
         mainShowOption();
         printf("<잘못된 값을 입력하셨습니다. 다시 입력해주세요.>\n");
     }
-}
-
-int clearBuffer() {
-    int c;
-    int isOver = 0;
-    while ((c = getchar()) != '\n' && c != EOF) {
-        isOver = 1;
-    }
-    return isOver;
 }
