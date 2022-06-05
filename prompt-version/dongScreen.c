@@ -85,7 +85,7 @@ void deleteDong() {
         return;
     }
 
-    char dongName[DONGNAMEMAX] = {'\0',};
+    char dongName[TEXTMAX] = {'\0',};
     strcpy(dongName, getDongName(selected));
     printf("\n%s를 삭제하시겠습니다?\n[y] 예   [다른값] 아니오\n\n입력 > ", dongName);
     char confirm;
@@ -116,7 +116,7 @@ void addDong() {
         return;
     }
 
-    char newDongName[DONGNAMEMAX] = { '\0', };
+    char newDongName[TEXTMAX] = { '\0', };
     printf("[동 추가 화면]\n\n[0] 뒤로 가기\n\n");
     printf("추가할 동의 이름을 입력하세요\n\n입력 > ");
     while (1) {

@@ -6,7 +6,7 @@
 #include <direct.h>
 
 #define CLEAR "cls"
-#define DONGNAMEMAX 20
+#define TEXTMAX 20
 
 
 typedef struct {
@@ -15,7 +15,7 @@ typedef struct {
 } STUDENT;
 
 typedef struct dong {
-	char name[DONGNAMEMAX];
+	char name[TEXTMAX];
 	STUDENT students[15][20][3];
 	struct dong* next;
 } DONG;

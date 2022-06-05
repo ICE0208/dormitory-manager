@@ -102,7 +102,7 @@ void saveAllInfo() {
 }
 
 void saveInfo(DONG* dong, FILE* fp) {
-	fwrite(dong->name, DONGNAMEMAX, 1, fp);
+	fwrite(dong->name, TEXTMAX, 1, fp);
 	for (int x = 0; x < 15; x++) {
 		for (int y = 0; y < 20; y++) {
 			for (int z = 0; z < 3; z++) {
@@ -131,8 +131,8 @@ DONG* loadInfo(FILE* fp) {
 	DONG* tempInfo = (DONG*)malloc(sizeof(DONG));
 	tempInfo->next = NULL;
 	int check;
-	char tempName[DONGNAMEMAX] = { '\0' };
-	check = fread(tempName, DONGNAMEMAX, 1, fp);
+	char tempName[TEXTMAX] = { '\0' };
+	check = fread(tempName, TEXTMAX, 1, fp);
 	if (check != 1) {
 		free(tempInfo);
 		return NULL;
