@@ -31,6 +31,7 @@ int removeDong(int index);
 void showAllDong();
 int getDongCount();
 char* getDongName(int index);
+DONG* getDONG(int index);
 void setDefaultInfo(DONG* dong);
 void saveAllInfo();
 void saveInfo(DONG* dong, FILE* fp);

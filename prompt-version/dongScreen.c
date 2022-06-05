@@ -24,7 +24,7 @@ void dongShowOption() {
     system(CLEAR);
     printf("[동 선택 화면]\n\n");
     showAllDong();
-    printf("\n[21] 동 추가\n[22] 동 삭제\n[23]동 순서 변경\n[0] 초기 화면\n\n");
+    printf("\n[21] 동 추가\n[22] 동 삭제\n[23] 동 순서 변경\n[0] 초기 화면\n\n");
 }
 
 void dongMoveTo(int option) {

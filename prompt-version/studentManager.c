@@ -71,8 +71,8 @@ int getDongCount() {
 	return count;
 }
 
-// 특정 인덱스에 저장되어 있는 동의 이름을 리턴해주는 함수이다.
-// 인덱스는 1번부터 시작한다.
+// 특정 인덱스에 저장되어 있는 동의 이름을 리턴해주는 함수입니다.
+// 인덱스는 1번부터 시작합니다.
 char* getDongName(int index) {
 	int i = 1;
 	DONG* cur = head->next;
@@ -83,7 +83,22 @@ char* getDongName(int index) {
 		i += 1;
 		cur = cur->next;
 	}
-	return "<ERROR>";
+	return "<ERROR can't find dong's name>";
+}
+
+// 특정 인덱스에 저장되어 있는 동의 구조체 포인터를 리턴해주는 함수입니다.
+// 인덱스는 1번부터 시작합니다.
+DONG* getDONG(int index) {
+	int i = 1;
+	DONG* cur = head->next;
+	while (cur != NULL) {
+		if (i == index) {
+			return cur;
+		}
+		i += 1;
+		cur = cur->next;
+	}
+	return NULL;
 }
 
 // 동을 하나 생성할 때 각 학생의 정보의 초깃값을 지정하기 위한 함수입니다.
