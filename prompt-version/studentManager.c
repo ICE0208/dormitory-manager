@@ -40,6 +40,48 @@ int removeDong(int index) {
 	return 0;
 }
 
+// t_1과 t_2의 자리를 바꿔주는 함수입니다.
+void changeDong(int target_1, int target_2) {
+	// t_1의 전 노드를 before_t_1에 가져오기
+	DONG* before_t_1 = head;
+	DONG* t_1 = head->next;
+	int i = 1;
+	while (t_1 != NULL) {
+		if (i == target_1) break;
+		i += 1;
+		before_t_1 = t_1;
+		t_1 = t_1->next;
+	}
+	// t_2의 전 노드를 before_t_2에 가져오기
+	DONG* before_t_2 = head;
+	DONG* t_2 = head->next;
+	i = 1;
+	while (t_2 != NULL) {
+		if (i == target_2) break;
+		i += 1;
+		before_t_2 = t_2;
+		t_2 = t_2->next;
+	}
+
+	DONG* temp = before_t_1->next;
+	before_t_1->next = before_t_2->next;
+	before_t_2->next = temp;
+
+	if (t_1->next == NULL) {
+		t_1->next = t_2->next;
+		t_2->next = NULL;
+	}
+	else if (t_2->next == NULL) {
+		t_2->next = t_1->next;
+		t_1->next = NULL;
+	}
+	else {
+		temp = t_1->next;
+		t_1->next = t_2->next;
+		t_2->next = temp;
+	}
+}
+
 // 등록된 동을 인덱스와 함께 모두 출력해주는 함수입니다.
 void showAllDong() {
 	DONG* cur = head->next;
@@ -106,13 +148,21 @@ void setDefaultInfo(DONG* dong) {
 	for (int x = 0; x < 15; x++) {
 		for (int y = 0; y < 20; y++) {
 			for (int z = 0; z < 3; z++) {
-				strcpy(dong->students[x][y][z].name, "미지정"); // 이름 미지정
-				dong->students[x][y][z].snum = 000; // 학번 초깃값
-				strcpy(dong->students[x][y][z].phoneNum, "010-xxxx-xxxx"); // 전화번호 초깃값
-				dong->students[x][y][z].breakfast = 0; // 조식 여부 초깃값 (x)
+				setDefaultStu(&(dong->students[x][y][z]));
+				//strcpy(dong->students[x][y][z].name, "미지정"); // 이름 미지정
+				//dong->students[x][y][z].snum = 000; // 학번 초깃값
+				//strcpy(dong->students[x][y][z].phoneNum, "010-xxxx-xxxx"); // 전화번호 초깃값
+				//dong->students[x][y][z].breakfast = 0; // 조식 여부 초깃값 (x)
 			}
 		}
 	}
+}
+
+void setDefaultStu(STUDENT* stu) {
+	strcpy(stu->name, DEFAULT_NAME);
+	stu->snum = DEFAULT_SNUM;
+	strcpy(stu->phoneNum, DEFAULT_PHONENUM);
+	stu->breakfast = DEFAULT_BREAKFAST;
 }
 
 void saveAllInfo() {

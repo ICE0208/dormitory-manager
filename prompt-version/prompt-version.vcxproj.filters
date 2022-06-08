@@ -42,6 +42,9 @@
     <ClCompile Include="stuScreen.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="stuInfoScreen.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileManager.h">
@@ -66,6 +69,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="stuScreen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stuInfoScreen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

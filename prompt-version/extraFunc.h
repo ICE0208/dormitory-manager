@@ -26,6 +26,22 @@
 #define DEFAULT_TITLE L"기숙사 관리 프로그램 - "
 #endif
 
+#ifndef DEFAULT_NAME
+#define DEFAULT_NAME "미지정"
+#endif
+
+#ifndef DEFAULT_SNUM
+#define DEFAULT_SNUM 0
+#endif
+
+#ifndef DEFAULT_PHONENUM
+#define DEFAULT_PHONENUM "010-xxxx-xxxx"
+#endif
+
+#ifndef DEFAULT_BREAKFAST
+#define DEFAULT_BREAKFAST 0
+#endif
+
 extern int clearBuffer();
 extern void setTitle(wchar_t* title);
 extern void printInputErrMsg();

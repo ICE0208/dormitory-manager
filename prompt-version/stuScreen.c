@@ -1,4 +1,5 @@
 ﻿#include "stuScreen.h"
+#include "stuInfoScreen.h"
 
 void stuScreen(DONG* dong, int floor, int ho) {
 	int selected;
@@ -6,10 +7,10 @@ void stuScreen(DONG* dong, int floor, int ho) {
 	while (1) {
 		setTitle(L"학생 선택 화면");
 		system(CLEAR);
-		stuShowOption(dong, floor, ho);
-		selected = stuGetUserInput(dong, floor, ho);
-		if (selected == 0) return; // 뒤로 가기 옵션
-		stuMoveTo(dong, floor, ho, selected);
+		stuShowOption(dong, floor, ho); // 학생 선택 화면 옵션 보여주기
+		selected = stuGetUserInput(dong, floor, ho); // 사용자의 옵션 선택
+		if (selected == 0) return; // 뒤로 가기 옵션 선택했을 때
+		stuMoveTo(dong, floor, ho, selected); // 선택한 옵션의 명령어 수행
 	}
 }
 
@@ -49,6 +50,7 @@ void stuMoveTo(DONG* dong, int floor, int ho, int option) {
 	// 학생을 선택했을 때
 	if (1 <= option && option <= STUMAX) {
 		// 이 동의 이 층의 이 호의 이 학생으로 이동
+		stuInfoScreen(dong, floor, ho, option);
 		return;
 	}
 	// 다른 값이 들어올 수 없음
