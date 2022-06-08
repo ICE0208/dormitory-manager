@@ -40,6 +40,48 @@ int removeDong(int index) {
 	return 0;
 }
 
+// t_1과 t_2의 자리를 바꿔주는 함수입니다.
+void changeDong(int target_1, int target_2) {
+	// t_1의 전 노드를 before_t_1에 가져오기
+	DONG* before_t_1 = head;
+	DONG* t_1 = head->next;
+	int i = 1;
+	while (t_1 != NULL) {
+		if (i == target_1) break;
+		i += 1;
+		before_t_1 = t_1;
+		t_1 = t_1->next;
+	}
+	// t_2의 전 노드를 before_t_2에 가져오기
+	DONG* before_t_2 = head;
+	DONG* t_2 = head->next;
+	i = 1;
+	while (t_2 != NULL) {
+		if (i == target_2) break;
+		i += 1;
+		before_t_2 = t_2;
+		t_2 = t_2->next;
+	}
+
+	DONG* temp = before_t_1->next;
+	before_t_1->next = before_t_2->next;
+	before_t_2->next = temp;
+
+	if (t_1->next == NULL) {
+		t_1->next = t_2->next;
+		t_2->next = NULL;
+	}
+	else if (t_2->next == NULL) {
+		t_2->next = t_1->next;
+		t_1->next = NULL;
+	}
+	else {
+		temp = t_1->next;
+		t_1->next = t_2->next;
+		t_2->next = temp;
+	}
+}
+
 // 등록된 동을 인덱스와 함께 모두 출력해주는 함수입니다.
 void showAllDong() {
 	DONG* cur = head->next;

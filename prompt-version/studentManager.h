@@ -27,6 +27,7 @@ DONG* tail;
 void setDongList();
 int setNewDong(char* dongName);
 int removeDong(int index);
+void changeDong(int t_1, int t_2);
 void showAllDong();
 int getDongCount();
 char* getDongName(int index);
