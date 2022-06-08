@@ -16,7 +16,7 @@ void stuInfoScreen(DONG* dong, int floor, int ho, int stu_i) {
 }
 
 void printStuInfo(DONG* dong, int floor, int ho, int stu_i) {
-	STUDENT* stu = &(dong->students[floor][ho][stu_i]);
+	STUDENT* stu = &(dong->students[floor-1][ho-1][stu_i-1]);
 	system(CLEAR);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("정보 출력 화면]\n");
@@ -31,7 +31,7 @@ void printStuInfo(DONG* dong, int floor, int ho, int stu_i) {
 	printf("학번: %d\n", stu->snum);
 	printf("전화 번호: %s\n", stu->phoneNum);
 	printf("조식 여부: ");
-	printf("O\n") ? stu->breakfast == 1 : printf("X\n");
+	printf("%s", stu->breakfast == 1 ? "O\n" : "X\n");
 }
 
 void stuInfoShowOption() {
@@ -212,7 +212,7 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 			continue;
 		}
 
-		if (strcmp(newStuBreakfast, "O") || strcmp(newStuBreakfast, "o")) {
+		if (strcmp(newStuBreakfast, "O") == 0 || strcmp(newStuBreakfast, "o") == 0) {
 			newStu.breakfast = 1;
 		}
 		else {
@@ -231,7 +231,7 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("학번: %d\n", newStu.snum);
 	printf("전화번호: %s\n", newStu.phoneNum);
 	printf("조식 여부: ");
-	printf("O\n") ? newStu.breakfast == 1 : printf("X\n");
+	printf("%s", newStu.breakfast == 1 ? "O\n" : "X\n");
 	printf("----------------------------\n\n");
 	printf("이 정보를 %s %d층 %d%02d호 학생%d에 추가하시겠습니까?\n",
 		dong->name, floor, floor, ho, stu_i);
@@ -247,7 +247,7 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	}
 
 	// 정보를 새로운 정보로 수정
-	STUDENT* stu = &(dong->students[floor][ho][stu_i]);
+	STUDENT* stu = &(dong->students[floor-1][ho-1][stu_i-1]);
 	strcpy(stu->name, newStu.name);
 	stu->snum = newStu.snum;
 	strcpy(stu->phoneNum, newStu.phoneNum);
