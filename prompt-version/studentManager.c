@@ -106,13 +106,21 @@ void setDefaultInfo(DONG* dong) {
 	for (int x = 0; x < 15; x++) {
 		for (int y = 0; y < 20; y++) {
 			for (int z = 0; z < 3; z++) {
-				strcpy(dong->students[x][y][z].name, "미지정"); // 이름 미지정
-				dong->students[x][y][z].snum = 000; // 학번 초깃값
-				strcpy(dong->students[x][y][z].phoneNum, "010-xxxx-xxxx"); // 전화번호 초깃값
-				dong->students[x][y][z].breakfast = 0; // 조식 여부 초깃값 (x)
+				setDefaultStu(&(dong->students[x][y][z]));
+				//strcpy(dong->students[x][y][z].name, "미지정"); // 이름 미지정
+				//dong->students[x][y][z].snum = 000; // 학번 초깃값
+				//strcpy(dong->students[x][y][z].phoneNum, "010-xxxx-xxxx"); // 전화번호 초깃값
+				//dong->students[x][y][z].breakfast = 0; // 조식 여부 초깃값 (x)
 			}
 		}
 	}
+}
+
+void setDefaultStu(STUDENT* stu) {
+	strcpy(stu->name, DEFAULT_NAME);
+	stu->snum = DEFAULT_SNUM;
+	strcpy(stu->phoneNum, DEFAULT_PHONENUM);
+	stu->breakfast = DEFAULT_BREAKFAST;
 }
 
 void saveAllInfo() {

@@ -32,6 +32,7 @@ int getDongCount();
 char* getDongName(int index);
 DONG* getDONG(int index);
 void setDefaultInfo(DONG* dong);
+void setDefaultStu(STUDENT* stu);
 void saveAllInfo();
 void saveInfo(DONG* dong, FILE* fp);
 void loadAllInfo();
