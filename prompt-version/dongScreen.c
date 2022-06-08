@@ -141,7 +141,7 @@ void addDong() {
             system(CLEAR);
             printf("[동 추가 화면]\n\n");
             printf("추가할 동의 이름을 입력하세요\n\n");
-            printf("동의 이름이 너무 깁니다.\n입력 > ");
+            printf("<동의 이름이 너무 깁니다.>\n입력 > ");
             continue;
         }
         break;
