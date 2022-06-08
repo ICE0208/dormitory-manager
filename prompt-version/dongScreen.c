@@ -127,7 +127,7 @@ void addDong() {
     printf("[동 추가 화면]\n\n[0] 뒤로 가기\n\n");
     printf("추가할 동의 이름을 입력하세요\n\n입력 > ");
     while (1) {
-        scanf_s("%s", newDongName, sizeof(newDongName));
+        scanf_s("%[^\n]s", newDongName, sizeof(newDongName));
         // 뒤로 가기 옵션
         if (strcmp(newDongName, "0") == 0) return;
 
