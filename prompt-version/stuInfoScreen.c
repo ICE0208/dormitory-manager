@@ -23,7 +23,7 @@ void printStuInfo(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 출력할 학생 정보가 없을 때
 	if (stu->snum == 0) {
-		printf("<등록된 학생이 없습니다.>\n");
+		printf("\n<등록된 학생이 없습니다.>\n");
 		return;
 	}
 
@@ -64,8 +64,16 @@ int stuInfoGetUserInput(DONG* dong, int floor, int ho, int stu_i) {
 void stuInfoMoveTo(DONG* dong, int floor, int ho, int stu_i, int option) {
 	// 1 ~ 3
 	if (1 <= option && option <= 3) {
-		if (option == 1) {
+		if (option == 1) { // 새로운 학생 정보 추가
 			addNewStu(dong, floor, ho, stu_i);
+			return;
+		}
+		if (option == 2) { // 현재 학생 정보 수정
+			// 구현 예정
+			return;
+		}
+		if (option == 3) { // 현재 학생 정보 삭제
+			removeCurStu(dong, floor, ho, stu_i);
 			return;
 		}
 		return;
@@ -188,7 +196,7 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("학번: %d\n", newStu.snum);
 	printf("전화번호: %s\n", newStu.phoneNum);
 	printf("----------------------------\n\n");
-	printf("[0] 뒤로 가기\n\n새로운 학생의 조식신청 여부 입력해주세요.\n\n입력 > ");
+	printf("[0] 뒤로 가기\n\n새로운 학생의 조식신청 여부 입력해주세요. (o/x)\n\n입력 > ");
 	char newStuBreakfast[TEXTMAX] = { '\0', };
 	while (1) {
 		scanf_s("%[^\n]s", newStuBreakfast, sizeof(newStuBreakfast));
@@ -207,7 +215,7 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 			printf("학번: %d\n", newStu.snum);
 			printf("전화번호: %s\n", newStu.phoneNum);
 			printf("----------------------------\n\n");
-			printf("[0] 뒤로 가기\n\n새로운 학생의 조식신청 여부 입력해주세요.");
+			printf("[0] 뒤로 가기\n\n새로운 학생의 조식신청 여부 입력해주세요. (o/x)");
 			printf("\n<올바른 값을 입력해주세요.>\n입력 > ");
 			continue;
 		}
@@ -254,6 +262,39 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	stu->breakfast = newStu.breakfast;
 	saveAllInfo(); // 파일에 저장
 	printf("정보를 새로운 값으로 수정 완료했습니다.\n 아무 키나 누르면 돌아갑니다.");
+	getch();
+	return;
+}
+
+void removeCurStu(DONG* dong, int floor, int ho, int stu_i) {
+	// 확인 절차
+	system(CLEAR);
+	STUDENT* stu = &(dong->students[floor - 1][ho - 1][stu_i - 1]);
+	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
+	printf("새로운 학생으로 추가]\n\n");
+	printf("-- 현재 학생의 정보 --\n");
+	printf("이름: %s\n", stu->name);
+	printf("학번: %d\n", stu->snum);
+	printf("전화번호: %s\n", stu->phoneNum);
+	printf("조식 여부: ");
+	printf("%s", stu->breakfast == 1 ? "O\n" : "X\n");
+	printf("----------------------------\n\n");
+	printf("%s %d층 %d%02d호 학생%d에 있는 이 정보를 삭제하시겠습니까?\n",
+		dong->name, floor, floor, ho, stu_i);
+	printf("[y] 예   [다른값] 아니오\n\n입력 > ");
+	char confirm;
+	scanf("%c", &confirm);
+	clearBuffer();
+
+	if (confirm != 'y') {
+		printf("\n삭제를 취소했습니다.\n아무 키나 누르면 돌아갑니다.");
+		getch();
+		return;
+	}
+
+	setDefaultStu(stu); // 이 학생의 정보를 초기화
+	saveAllInfo(); // 파일에 저장
+	printf("현재 학생의 정보 삭제를 완료했습니다.\n 아무 키나 누르면 돌아갑니다.");
 	getch();
 	return;
 }
