@@ -22,6 +22,8 @@ typedef struct dong {
 DONG* head;
 DONG* tail;
 
+
+
 void setDongList();
 int setNewDong(char* dongName);
 int removeDong(int index);
