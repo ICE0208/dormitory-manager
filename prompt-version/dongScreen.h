@@ -9,3 +9,4 @@ int dongGetUserInput();
 
 void deleteDong();
 void addDong();
+void changeDongIndex();
