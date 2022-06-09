@@ -27,15 +27,15 @@ void printStuInfo(DONG* dong, int floor, int ho, int stu_i) {
 		return;
 	}
 
-	printf("학생 이름 : %s\n", stu->name);
-	printf("학생 성별: %s\n", stu->isMan == 2 ? "여자" : "남자");
+	printf("이름 : %s\n", stu->name);
+	printf("성별: %s\n", stu->isMan == 2 ? "여자" : "남자");
 	printf("학번: %d\n", stu->snum);
 	printf("학년: %d\n", stu->grade);
 	printf("전공: %s\n", stu->major);
 	printf("전화 번호: %s\n", stu->phoneNum);
 	printf("조식 여부: ");
 	printf("%s", stu->breakfast == 1 ? "O\n" : "X\n");
-	printf("퇴실 날찌: %04d년 %02d월 %02d일\n",
+	printf("퇴실 날짜: %04d년 %02d월 %02d일\n",
 		stu->outDate[0], stu->outDate[1], stu->outDate[2]);
 }
 
@@ -103,7 +103,7 @@ void printCurStu(STUDENT* stu, int count) {
 	printf("조식 여부: ");
 	printf("%s", stu->breakfast == 1 ? "O\n" : "X\n");
 	if (count < 8) { printf("-----------------------------\n\n"); return; }
-	printf("퇴실 날찌: %04d년 %02d월 %02d일\n",
+	printf("퇴실 날짜: %04d년 %02d월 %02d일\n",
 		stu->outDate[0], stu->outDate[1], stu->outDate[2]);
 	printf("-----------------------------\n\n");
 }

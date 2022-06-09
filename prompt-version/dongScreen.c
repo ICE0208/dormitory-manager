@@ -75,6 +75,12 @@ void deleteDong() {
     int selected;
     printf("[동 삭제 화면]\n\n");
     showAllDong();
+    // 동의 개수가 0개라면
+    if (getDongCount() == 0) {
+        printf("\n아무키나 누르면 돌아갑니다.");
+        getch();
+        return;
+    }
     printf("\n[0] 뒤로 가기\n\n");
     printf("<삭제할 동의 번호를 입력해주세요.>\n");
     printf("입력 > ");
