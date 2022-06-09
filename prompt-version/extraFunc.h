@@ -30,6 +30,14 @@
 #define DEFAULT_NAME "미지정"
 #endif
 
+#ifndef DEFAULT_GENDER
+#define DEFAULT_GENDER 1
+#endif
+
+#ifndef DEFAULT_GRADE
+#define DEFAULT_GRADE 1
+#endif
+
 #ifndef DEFAULT_SNUM
 #define DEFAULT_SNUM 0
 #endif
@@ -40,6 +48,10 @@
 
 #ifndef DEFAULT_BREAKFAST
 #define DEFAULT_BREAKFAST 0
+#endif
+
+#ifndef DEFAULT_OUTDATE
+#define DEFAULT_OUTDATE {2023, 1, 1}
 #endif
 
 extern int clearBuffer();

@@ -171,6 +171,14 @@ void changeDongIndex() {
     system(CLEAR);
     int target_1;
     printf("[동 순서 변경 화면]\n\n");
+
+    // 동의 개수가 1개 이하라면
+    if (getDongCount() <= 1) {
+        printf("<동의 개수가 충분하지 않습니다.>\n\n아무키나 누르면 돌아갑니다.");
+        getch();
+        return;
+    }
+
     showAllDong();
     printf("\n[0] 뒤로 가기\n\n");
     printf("[순서를 바꿀 동의 번호를 입력해주세요.]\n\n");
