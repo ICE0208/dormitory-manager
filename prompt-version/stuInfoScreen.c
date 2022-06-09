@@ -28,7 +28,7 @@ void printStuInfo(DONG* dong, int floor, int ho, int stu_i) {
 	}
 
 	printf("학생 이름 : %s\n", stu->name);
-	printf("학생 성별: %s", stu->isMan == 2 ? "여자" : "남자");
+	printf("학생 성별: %s\n", stu->isMan == 2 ? "여자" : "남자");
 	printf("학번: %d\n", stu->snum);
 	printf("학년: %d\n", stu->grade);
 	printf("전화 번호: %s\n", stu->phoneNum);
@@ -425,7 +425,7 @@ void removeCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	// 확인 절차
 	printf("-- 현재 학생의 정보 --\n");
 	printf("학생 이름 : %s\n", stu->name);
-	printf("학생 성별: %s", stu->isMan == 2 ? "여자" : "남자");
+	printf("학생 성별: %s\n", stu->isMan == 2 ? "여자" : "남자");
 	printf("학번: %d\n", stu->snum);
 	printf("학년: %d\n", stu->grade);
 	printf("전화 번호: %s\n", stu->phoneNum);
