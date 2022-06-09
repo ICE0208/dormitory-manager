@@ -45,6 +45,9 @@
     <ClCompile Include="stuInfoScreen.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="searchScreen.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileManager.h">
@@ -72,6 +75,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="stuInfoScreen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="searchScreen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

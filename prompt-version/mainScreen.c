@@ -2,6 +2,7 @@
 #include "mainScreen.h"
 #include "studentManager.h"
 #include "dongScreen.h"
+#include "searchScreen.h"
 
 void mainScreen() {
     int selected;
@@ -15,13 +16,15 @@ void mainScreen() {
 }
 
 void mainMoveTo(int option) {
-    printf("%d로 이동합니다.\n", option);
     switch (option) {
     case 0:
         exit(0);
         break;
     case 1:
         dongScreen();
+        break;
+    case 2:
+        searchScreen();
         break;
     }
 }
@@ -46,6 +49,6 @@ int mainGetUserInput() {
 
         system(CLEAR);
         mainShowOption();
-        printf("<잘못된 값을 입력하셨습니다. 다시 입력해주세요.>\n");
+        printInputErrMsg();
     }
 }
