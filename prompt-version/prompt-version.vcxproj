@@ -142,7 +142,6 @@
   <ItemGroup>
     <ClCompile Include="dongScreen.c" />
     <ClCompile Include="extraFunc.c" />
-    <ClCompile Include="fileManager.c" />
     <ClCompile Include="floorScreen.c" />
     <ClCompile Include="hoScreen.c" />
     <ClCompile Include="Main.c" />
@@ -155,7 +154,6 @@
   <ItemGroup>
     <ClInclude Include="dongScreen.h" />
     <ClInclude Include="extraFunc.h" />
-    <ClInclude Include="fileManager.h" />
     <ClInclude Include="floorScreen.h" />
     <ClInclude Include="hoScreen.h" />
     <ClInclude Include="mainScreen.h" />
