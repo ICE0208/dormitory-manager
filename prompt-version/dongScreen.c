@@ -134,7 +134,10 @@ void addDong() {
     while (1) {
         scanf_s("%[^\n]s", newDongName, sizeof(newDongName));
         // 뒤로 가기 옵션
-        if (strcmp(newDongName, "0") == 0) return;
+        if (strcmp(newDongName, "0") == 0) {
+            clearBuffer();
+            return;
+        }
 
         // 글자 수 초과
         if (clearBuffer() == 1 || strlen(newDongName) == 0) {

@@ -71,17 +71,14 @@ void stuInfoMoveTo(DONG* dong, int floor, int ho, int stu_i, int option) {
 	if (1 <= option && option <= 3) {
 		if (option == 1) { // 새로운 학생 정보 추가
 			addNewStu(dong, floor, ho, stu_i);
-			clearBuffer();
 			return;
 		}
 		if (option == 2) { // 현재 학생 정보 수정
 			modifyCurStu(dong, floor, ho, stu_i);
-			clearBuffer();
 			return;
 		}
 		if (option == 3) { // 현재 학생 정보 삭제
 			removeCurStu(dong, floor, ho, stu_i);
-			clearBuffer();
 			return;
 		}
 		return;
@@ -125,7 +122,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	while (1) {
 		scanf_s("%[^\n]s", newStuName, sizeof(newStuName));
 		// 뒤로 가기 옵션
-		if (strcmp(newStuName, "0") == 0) return;
+		if (strcmp(newStuName, "0") == 0) {
+			clearBuffer();
+			return;
+		}
 
 		// 글자 수 초과
 		if (clearBuffer() == 1 || strlen(newStuName) == 0) {
@@ -149,9 +149,9 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	int isMan = -1;
 	while (1) {
 		scanf("%d", &isMan);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (isMan == 0) return;
-		clearBuffer();
 
 		// 다른 값이 입력됐을 때
 		if (isMan != 1 && isMan != 2) {
@@ -179,7 +179,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	while (1) {
 		scanf_s("%[^\n]s", newStuNum, sizeof(newStuNum));
 		// 뒤로 가기 옵션
-		if (strcmp(newStuNum, "0") == 0) return;
+		if (strcmp(newStuNum, "0") == 0) {
+			clearBuffer();
+			return;
+		}
 
 		// 글자 수 초과
 		if (clearBuffer() == 1 || strlen(newStuNum) == 0 || strlen(newStuNum) > 10) {
@@ -217,9 +220,9 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	int newStuGrade = -1;
 	while (1) {
 		scanf("%d", &newStuGrade);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (newStuGrade == 0) return;
-		clearBuffer();
 
 		// 다른 값이 입력됐을 때
 		if (newStuGrade < 1 || newStuGrade > 10) {
@@ -246,7 +249,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	while (1) {
 		scanf_s("%[^\n]s", newStuMajor, sizeof(newStuMajor));
 		// 뒤로 가기 옵션
-		if (strcmp(newStuMajor, "0") == 0) return;
+		if (strcmp(newStuMajor, "0") == 0) {
+			clearBuffer();
+			return;
+		}
 
 		// 글자 수 초과
 		if (clearBuffer() == 1 || strlen(newStuMajor) == 0) {
@@ -272,7 +278,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	while (1) {
 		scanf_s("%[^\n]s", newStuPhoneNum, sizeof(newStuPhoneNum));
 		// 뒤로 가기 옵션
-		if (strcmp(newStuPhoneNum, "0") == 0) return;
+		if (strcmp(newStuPhoneNum, "0") == 0) {
+			clearBuffer();
+			return;
+		}
 
 		// 글자 수 초과
 		if (clearBuffer() == 1 || strlen(newStuPhoneNum) == 0) {
@@ -298,7 +307,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	while (1) {
 		scanf_s("%[^\n]s", newStuBreakfast, sizeof(newStuBreakfast));
 		// 뒤로 가기 옵션
-		if (strcmp(newStuBreakfast, "0") == 0) return;
+		if (strcmp(newStuBreakfast, "0") == 0) {
+			clearBuffer();
+			return;
+		}
 
 		// 글자 수 초과
 		if (clearBuffer() == 1 || strlen(newStuBreakfast) == 0 || 
@@ -333,9 +345,9 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("[0] 뒤로 가기\n\n새로운 학생의 퇴실 날짜의 연도를 입력해주세요. (____-__-__)\n\n입력 > ");
 	while (1) {
 		scanf("%d", &newStuOutDate[0]);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (newStuOutDate[0] == 0) return;
-		clearBuffer();
 
 		// 다른 값이 입력됐을 때
 		if (newStuOutDate[0] < 2022 || newStuOutDate[0] > 3000) {
@@ -358,9 +370,9 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("[0] 뒤로 가기\n\n새로운 학생의 퇴실 날짜의 월을 입력해주세요. (%04d-__-__)\n\n입력 > ", newStu.outDate[0]);
 	while (1) {
 		scanf("%d", &newStuOutDate[1]);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (newStuOutDate[1] == 0) return;
-		clearBuffer();
 
 		// 다른 값이 입력됐을 때
 		if (newStuOutDate[1] < 1 || newStuOutDate[1] > 12) {
@@ -384,9 +396,9 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		newStu.outDate[0], newStu.outDate[1]);
 	while (1) {
 		scanf("%d", &newStuOutDate[2]);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (newStuOutDate[2] == 0) return;
-		clearBuffer();
 
 		// 다른 값이 입력됐을 때
 		if (newStuOutDate[2] < 1 || newStuOutDate[2] > 31) {
@@ -511,9 +523,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("입력 > ");
 	while (1) {
 		scanf("%d", &check);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (check == 0) return;
-		clearBuffer();
 
 		// 다른 값
 		if (check != 1 && check != 2) {
@@ -539,7 +551,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		while (1) {
 			scanf_s("%[^\n]s", newStuName, sizeof(newStuName));
 			// 뒤로 가기 옵션
-			if (strcmp(newStuName, "0") == 0) return;
+			if (strcmp(newStuName, "0") == 0) {
+				clearBuffer();
+				return;
+			}
 
 			// 글자 수 초과
 			if (clearBuffer() == 1 || strlen(newStuName) == 0) {
@@ -566,9 +581,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("입력 > ");
 	while (1) {
 		scanf("%d", &check);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (check == 0) return;
-		clearBuffer();
 
 		// 다른 값
 		if (check != 1 && check != 2) {
@@ -592,9 +607,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		int isMan = -1;
 		while (1) {
 			scanf("%d", &isMan);
+			clearBuffer();
 			// 뒤로 가기 옵션
 			if (isMan == 0) return;
-			clearBuffer();
 
 			// 다른 값이 입력됐을 때
 			if (isMan != 1 && isMan != 2) {
@@ -622,9 +637,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("입력 > ");
 	while (1) {
 		scanf("%d", &check);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (check == 0) return;
-		clearBuffer();
 
 		// 다른 값
 		if (check != 1 && check != 2) {
@@ -650,7 +665,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		while (1) {
 			scanf_s("%[^\n]s", newStuNum, sizeof(newStuNum));
 			// 뒤로 가기 옵션
-			if (strcmp(newStuNum, "0") == 0) return;
+			if (strcmp(newStuNum, "0") == 0) {
+				clearBuffer();
+				return;
+			}
 
 			// 글자 수 초과
 			if (clearBuffer() == 1 || strlen(newStuNum) == 0 || strlen(newStuNum) > 10) {
@@ -690,9 +708,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("입력 > ");
 	while (1) {
 		scanf("%d", &check);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (check == 0) return;
-		clearBuffer();
 
 		// 다른 값
 		if (check != 1 && check != 2) {
@@ -716,9 +734,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		int newStuGrade = -1;
 		while (1) {
 			scanf("%d", &newStuGrade);
+			clearBuffer();
 			// 뒤로 가기 옵션
 			if (newStuGrade == 0) return;
-			clearBuffer();
 
 			// 다른 값이 입력됐을 때
 			if (newStuGrade < 1 || newStuGrade > 10) {
@@ -746,9 +764,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("입력 > ");
 	while (1) {
 		scanf("%d", &check);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (check == 0) return;
-		clearBuffer();
 
 		// 다른 값
 		if (check != 1 && check != 2) {
@@ -773,7 +791,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		while (1) {
 			scanf_s("%[^\n]s", newStuMajor, sizeof(newStuMajor));
 			// 뒤로 가기 옵션
-			if (strcmp(newStuMajor, "0") == 0) return;
+			if (strcmp(newStuMajor, "0") == 0) {
+				clearBuffer();
+				return;
+			}
 
 			// 글자 수 초과
 			if (clearBuffer() == 1 || strlen(newStuMajor) == 0) {
@@ -800,9 +821,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("입력 > ");
 	while (1) {
 		scanf("%d", &check);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (check == 0) return;
-		clearBuffer();
 
 		// 다른 값
 		if (check != 1 && check != 2) {
@@ -827,7 +848,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		while (1) {
 			scanf_s("%[^\n]s", newStuPhoneNum, sizeof(newStuPhoneNum));
 			// 뒤로 가기 옵션
-			if (strcmp(newStuPhoneNum, "0") == 0) return;
+			if (strcmp(newStuPhoneNum, "0") == 0) {
+				clearBuffer();
+				return;
+			}
 
 			// 글자 수 초과
 			if (clearBuffer() == 1 || strlen(newStuPhoneNum) == 0) {
@@ -854,9 +878,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("입력 > ");
 	while (1) {
 		scanf("%d", &check);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (check == 0) return;
-		clearBuffer();
 
 		// 다른 값
 		if (check != 1 && check != 2) {
@@ -881,7 +905,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		while (1) {
 			scanf_s("%[^\n]s", newStuBreakfast, sizeof(newStuBreakfast));
 			// 뒤로 가기 옵션
-			if (strcmp(newStuBreakfast, "0") == 0) return;
+			if (strcmp(newStuBreakfast, "0") == 0) {
+				clearBuffer();
+				return;
+			}
 
 			// 글자 수 초과
 			if (clearBuffer() == 1 || strlen(newStuBreakfast) == 0 ||
@@ -917,9 +944,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	printf("입력 > ");
 	while (1) {
 		scanf("%d", &check);
+		clearBuffer();
 		// 뒤로 가기 옵션
 		if (check == 0) return;
-		clearBuffer();
 
 		// 다른 값
 		if (check != 1 && check != 2) {
@@ -944,9 +971,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		printf("[0] 뒤로 가기\n\n수정할 학생의 퇴실 날짜의 연도를 입력해주세요. (____-__-__)\n\n입력 > ");
 		while (1) {
 			scanf("%d", &newStuOutDate[0]);
+			clearBuffer();
 			// 뒤로 가기 옵션
 			if (newStuOutDate[0] == 0) return;
-			clearBuffer();
 
 			// 다른 값이 입력됐을 때
 			if (newStuOutDate[0] < 2022 || newStuOutDate[0] > 3000) {
@@ -969,9 +996,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		printf("[0] 뒤로 가기\n\n수정할 학생의 퇴실 날짜의 월을 입력해주세요. (%04d-__-__)\n\n입력 > ", tempStu.outDate[0]);
 		while (1) {
 			scanf("%d", &newStuOutDate[1]);
+			clearBuffer();
 			// 뒤로 가기 옵션
 			if (newStuOutDate[1] == 0) return;
-			clearBuffer();
 
 			// 다른 값이 입력됐을 때
 			if (newStuOutDate[1] < 1 || newStuOutDate[1] > 12) {
@@ -995,9 +1022,9 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			tempStu.outDate[0], tempStu.outDate[1]);
 		while (1) {
 			scanf("%d", &newStuOutDate[2]);
+			clearBuffer();
 			// 뒤로 가기 옵션
 			if (newStuOutDate[2] == 0) return;
-			clearBuffer();
 
 			// 다른 값이 입력됐을 때
 			if (newStuOutDate[2] < 1 || newStuOutDate[2] > 31) {

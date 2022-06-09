@@ -18,11 +18,9 @@ void searchMoveTo(int option) {
     case 1:
         // 이름으로 찾기 이동
         searchName();
-        clearBuffer();
         break;
     case 2:
         // 학번으로 찾기 이동
-        clearBuffer();
         break;
     }
 }
@@ -60,7 +58,10 @@ void searchName() {
     while (1) {
         scanf_s("%[^\n]s", searchingName, sizeof(searchingName));
         // 뒤로 가기 옵션
-        if (strcmp(searchingName, "0") == 0) return;
+        if (strcmp(searchingName, "0") == 0) {
+            clearBuffer();
+            return;
+        }
 
         // 글자 수 초과
         if (clearBuffer() == 1 || strlen(searchingName) == 0) {
@@ -130,8 +131,8 @@ void searchName() {
         printf("\n[0] 뒤로 가기\n\n\n입력 > ");
         while (1) { // 올바른 값 입력받을 때 까지
             scanf("%d", &selected);
-            if (selected == 0) return;
             clearBuffer();
+            if (selected == 0) return;
 
             if (selected < 1 || selected > index) {
                 system(CLEAR);

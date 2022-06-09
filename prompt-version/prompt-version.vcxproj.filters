@@ -18,9 +18,6 @@
     <ClCompile Include="Main.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="fileManager.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="mainScreen.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -50,9 +47,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fileManager.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="mainScreen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
