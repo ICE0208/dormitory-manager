@@ -1,4 +1,5 @@
 ﻿#include "searchScreen.h"
+#include "stuInfoScreen.h"
 
 void searchScreen() {
 	int selected;
@@ -17,9 +18,11 @@ void searchMoveTo(int option) {
     case 1:
         // 이름으로 찾기 이동
         searchName();
+        clearBuffer();
         break;
     case 2:
         // 학번으로 찾기 이동
+        clearBuffer();
         break;
     }
 }
@@ -104,25 +107,93 @@ void searchName() {
         }
     }
 
-    system(CLEAR);
-    printf("[이름으로 검색하기]\n\n");
+    int selected = -1;
+    while (1) {
+        system(CLEAR);
+        printf("[이름으로 검색하기]\n\n");
 
-    // 연결리스트에 저장된 값 모두 출력
-    FOUND_STU* cur = head->next;
-    int index = 0;
-    while (cur != NULL) {
-        index++;
-        printf("[%02d] %s (%s %d층 %d%02d호 %d번 학생)\n",
-            index, searchingName, (cur->dong)->name, cur->path[0]+1, 
-            cur->path[0] + 1, cur->path[1]+1, cur->path[2]+1);
-        cur = cur->next;
+        // 연결리스트에 저장된 값 모두 출력
+        FOUND_STU* cur = head->next;
+        int index = 0;
+        while (cur != NULL) {
+            index++;
+            printf("[%02d] %s (%s %d층 %d%02d호 %d번 학생)\n",
+                index, searchingName, (cur->dong)->name, cur->path[0] + 1,
+                cur->path[0] + 1, cur->path[1] + 1, cur->path[2] + 1);
+            cur = cur->next;
+        }
+        if (index == 0) {
+            printf("<%s 학생을 찾을 수 없습니다.>\n", searchingName);
+        }
+
+        printf("\n[0] 뒤로 가기\n\n\n입력 > ");
+        while (1) { // 올바른 값 입력받을 때 까지
+            scanf("%d", &selected);
+            if (selected == 0) return;
+            clearBuffer();
+
+            if (selected < 1 || selected > index) {
+                // 연결리스트에 저장된 값 모두 출력
+                FOUND_STU* cur = head->next;
+                int index = 0;
+                while (cur != NULL) {
+                    index++;
+                    printf("[%02d] %s (%s %d층 %d%02d호 %d번 학생)\n",
+                        index, searchingName, (cur->dong)->name, cur->path[0] + 1,
+                        cur->path[0] + 1, cur->path[1] + 1, cur->path[2] + 1);
+                    cur = cur->next;
+                }
+                if (index == 0) {
+                    printf("<%s 학생을 찾을 수 없습니다.>\n", searchingName);
+                }
+                printf("\n[0] 뒤로 가기\n\n");
+                printInputErrMsg();
+                printf("입력 > ");
+            }
+            break;
+        }
+
+        // 입력한 학생의 정보 화면으로 이동하기
+        cur = head;
+        for (int i = 0; i < selected; i++) {
+            cur = cur->next;
+        }
+        stuInfoScreen(cur->dong, cur->path[0] + 1, cur->path[1] + 1, cur->path[2] + 1);
+
+        // 연결 리스트 업데이트
+        // - 연결 리스트 초기화
+        cur = head->next;
+        FOUND_STU* last;
+        while (cur != NULL) {
+            last = cur;
+            cur = cur->next;
+            free(last);
+        }
+        head->next = NULL;
+        tail = head;
+        // - 다시 연결 리스트에 추가
+        int check = -1;
+        for (int i = 1; i <= getDongCount(); i++) {
+            DONG* curDong = getDONG(i);
+            if (curDong == NULL) continue; // 혹시 모를 예외 처리
+            for (int x = 0; x < FLOORMAX; x++) {
+                for (int y = 0; y < HOMAX; y++) {
+                    for (int z = 0; z < STUMAX; z++) {
+                        check = strcmp(searchingName, curDong->students[x][y][z].name);
+                        if (check == 0) { // 이름이 같다면
+                            tail->next = (FOUND_STU*)malloc(sizeof(FOUND_STU));
+                            tail = tail->next;
+                            tail->dong = curDong;
+                            tail->path[0] = x;
+                            tail->path[1] = y;
+                            tail->path[2] = z;
+                            tail->next = NULL;
+                        }
+                    }
+                }
+            }
+        }
     }
-    if (index == 0) {
-        printf("<%s 학생을 찾을 수 없습니다.>\n", searchingName);
-    }
-
-    printf("\n\n아무 키나 누르면 종료됩니다.");
-    getch();
-
+    
 
 }
