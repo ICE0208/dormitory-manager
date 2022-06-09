@@ -10,3 +10,4 @@ void stuInfoMoveTo(DONG* dong, int floor, int ho, int stu_i, int option);
 void addNewStu(DONG* dong, int floor, int ho, int stu_i);
 void printCurStu(STUDENT* stu, int count);
 void removeCurStu(DONG* dong, int floor, int ho, int stu_i);
+void modifyCurStu(DONG* dong, int floor, int ho, int stu_i);

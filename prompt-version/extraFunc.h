@@ -1,4 +1,6 @@
 ﻿#pragma once
+#pragma warning(disable:4996) // scanf 에러 발생 안되게 처리
+
 #include <stdio.h>
 #include <windows.h>
 
