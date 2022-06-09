@@ -8,9 +8,12 @@
 
 typedef struct {
 	char name[TEXTMAX]; // 이름
+	int isMan; // 성별 (1: 남자, 2: 여자)
 	int snum; // 학번
+	int grade; // 학년
 	char phoneNum[TEXTMAX]; // 전화 번호
 	int breakfast; // 조식 여부 (0: x, 1: o)
+	int outDate[3]; // 퇴실 날짜 ([0]: year, [1]: month, [2]: day)
 } STUDENT;
 
 typedef struct dong {
