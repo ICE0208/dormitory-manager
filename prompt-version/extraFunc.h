@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <windows.h>
+#include <conio.h>
 
 #ifndef CLEAR
 #define CLEAR "cls"
