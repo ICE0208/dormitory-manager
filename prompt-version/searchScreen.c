@@ -16,6 +16,7 @@ void searchMoveTo(int option) {
     switch (option) {
     case 1:
         // 이름으로 찾기 이동
+        searchName();
         break;
     case 2:
         // 학번으로 찾기 이동
@@ -44,4 +45,84 @@ int searchGetUserInput() {
         searchShowOption();
         printInputErrMsg();
     }
+}
+
+void searchName() {
+    setTitle(L"검색 화면 - 이름 검색");
+    system(CLEAR);
+    printf("[이름으로 검색하기]\n\n");
+    printf("[0] 뒤로 가기\n\n입력 > ");
+
+    char searchingName[TEXTMAX] = { '\0', };
+    while (1) {
+        scanf_s("%[^\n]s", searchingName, sizeof(searchingName));
+        // 뒤로 가기 옵션
+        if (strcmp(searchingName, "0") == 0) return;
+
+        // 글자 수 초과
+        if (clearBuffer() == 1 || strlen(searchingName) == 0) {
+            system(CLEAR);
+            printf("[이름으로 검색하기]\n\n");
+            printf("[0] 뒤로 가기\n");
+            printf("\n<학생의 이름이 너무 깁니다.>\n입력 > ");
+            continue;
+        }
+        break;
+    }
+
+    // 찾아진 이름을 저장할 연결리스트
+    typedef struct foundStu {
+        DONG* dong;
+        int path[3]; // floor, ho, stu
+        struct foundStu* next;
+    } FOUND_STU;
+
+    FOUND_STU* head = (FOUND_STU*)malloc(sizeof(FOUND_STU));
+    FOUND_STU* tail = head;
+    head->next = NULL;
+
+    // 같은 이름 모두 연결리스트에 넣기
+    int check = -1;
+    for (int i = 1; i <= getDongCount(); i++) {
+        DONG* curDong = getDONG(i);
+        if (curDong == NULL) continue; // 혹시 모를 예외 처리
+        for (int x = 0; x < FLOORMAX; x++) {
+            for (int y = 0; y < HOMAX; y++) {
+                for (int z = 0; z < STUMAX; z++) {
+                    check = strcmp(searchingName, curDong->students[x][y][z].name);
+                    if (check == 0) { // 이름이 같다면
+                        tail->next = (FOUND_STU*)malloc(sizeof(FOUND_STU));
+                        tail = tail->next;
+                        tail->dong = curDong;
+                        tail->path[0] = x;
+                        tail->path[1] = y;
+                        tail->path[2] = z;
+                        tail->next = NULL;
+                    }
+                }
+            }
+        }
+    }
+
+    system(CLEAR);
+    printf("[이름으로 검색하기]\n\n");
+
+    // 연결리스트에 저장된 값 모두 출력
+    FOUND_STU* cur = head->next;
+    int index = 0;
+    while (cur != NULL) {
+        index++;
+        printf("[%02d] %s (%s %d층 %d%02d호 %d번 학생)\n",
+            index, searchingName, (cur->dong)->name, cur->path[0]+1, 
+            cur->path[0] + 1, cur->path[1]+1, cur->path[2]+1);
+        cur = cur->next;
+    }
+    if (index == 0) {
+        printf("<%s 학생을 찾을 수 없습니다.>\n", searchingName);
+    }
+
+    printf("\n\n아무 키나 누르면 종료됩니다.");
+    getch();
+
+
 }
