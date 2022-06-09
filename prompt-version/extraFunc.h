@@ -2,8 +2,8 @@
 #pragma warning(disable:4996) // scanf 에러 발생 안되게 처리
 
 #include <stdio.h>
-#include <windows.h>
 #include <conio.h>
+#include <windows.h>
 
 #ifndef CLEAR
 #define CLEAR "cls"
@@ -55,6 +55,10 @@
 
 #ifndef DEFAULT_OUTDATE
 #define DEFAULT_OUTDATE {2023, 1, 1}
+#endif
+
+#ifndef DEFAULT_MAJOR
+#define DEFAULT_MAJOR "미지정"
 #endif
 
 extern int clearBuffer();

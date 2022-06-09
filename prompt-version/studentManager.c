@@ -1,11 +1,13 @@
 ﻿#include "studentManager.h"
 
+// 동 연결 리스트를 생성합니다.
 void setDongList() {
 	head = (DONG*)malloc(sizeof(DONG));
 	tail = head;
 	head->next = NULL;
 }
 
+// 새로운 동을 추가합니다.
 int setNewDong(char* dongName) {
 	int curCount = getDongCount();
 	if (curCount >= 20) return -1;
@@ -19,6 +21,7 @@ int setNewDong(char* dongName) {
 	return 0;
 }
 
+// index의 동을 삭제합니다.
 int removeDong(int index) {
 	int i = 1;
 	DONG* lastCur = head;
@@ -103,6 +106,7 @@ void showAllDong() {
 	printf("\n");
 }
 
+// 등록된 동의 개수를 반환해주는 함수입니다.
 int getDongCount() {
 	DONG* cur = head->next;
 	int count = 0;
@@ -154,11 +158,13 @@ void setDefaultInfo(DONG* dong) {
 	}
 }
 
+// 학생 정보를 초기값으로 세팅해줍니다.
 void setDefaultStu(STUDENT* stu) {
 	strcpy(stu->name, DEFAULT_NAME);
 	stu->isMan = DEFAULT_GENDER;
 	stu->snum = DEFAULT_SNUM;
 	stu->grade = DEFAULT_GRADE;
+	strcpy(stu->major, DEFAULT_MAJOR);
 	strcpy(stu->phoneNum, DEFAULT_PHONENUM);
 	stu->breakfast = DEFAULT_BREAKFAST;
 	int d_o[3] = DEFAULT_OUTDATE;
@@ -167,6 +173,7 @@ void setDefaultStu(STUDENT* stu) {
 	}
 }
 
+// 모든 동의 정보를 파일로 저장합니다.
 void saveAllInfo() {
 	mkdir("c:\\dormanager");
 	FILE* fp = fopen("c:\\dormanager\\info.bin", "wb");
@@ -179,6 +186,7 @@ void saveAllInfo() {
 	//printf("저장 완료\n");
 }
 
+// 선택된 동을 파일에 저장합니다.
 void saveInfo(DONG* dong, FILE* fp) {
 	fwrite(dong->name, TEXTMAX, 1, fp);
 	for (int x = 0; x < 15; x++) {
@@ -190,6 +198,7 @@ void saveInfo(DONG* dong, FILE* fp) {
 	}
 }
 
+// 파일로부터 모든 정보를 불러옵니다.
 void loadAllInfo() {
 	FILE* fp = fopen("c:\\dormanager\\info.bin", "rb");
 	if (fp == NULL) {
@@ -205,6 +214,7 @@ void loadAllInfo() {
 	fclose(fp);
 }
 
+// 파일로부터 정보를 불러옵니다.
 DONG* loadInfo(FILE* fp) {
 	DONG* tempInfo = (DONG*)malloc(sizeof(DONG));
 	tempInfo->next = NULL;
