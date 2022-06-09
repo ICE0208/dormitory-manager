@@ -107,8 +107,9 @@ void searchName() {
         }
     }
 
-    int selected = -1;
+    int selected;
     while (1) {
+        selected = -1;
         system(CLEAR);
         printf("[이름으로 검색하기]\n\n");
 
@@ -133,6 +134,8 @@ void searchName() {
             clearBuffer();
 
             if (selected < 1 || selected > index) {
+                system(CLEAR);
+                printf("[이름으로 검색하기]\n\n");
                 // 연결리스트에 저장된 값 모두 출력
                 FOUND_STU* cur = head->next;
                 int index = 0;
@@ -149,6 +152,7 @@ void searchName() {
                 printf("\n[0] 뒤로 가기\n\n");
                 printInputErrMsg();
                 printf("입력 > ");
+                continue;
             }
             break;
         }
