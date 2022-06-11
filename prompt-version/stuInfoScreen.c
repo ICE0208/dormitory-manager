@@ -39,6 +39,7 @@ void printStuInfo(DONG* dong, int floor, int ho, int stu_i) {
 	printf("%s", stu->breakfast == 1 ? "O\n" : "X\n");
 	printf("퇴실 날짜: %04d년 %02d월 %02d일\n",
 		stu->outDate[0], stu->outDate[1], stu->outDate[2]);
+	printf("-----------------------------\n");
 }
 
 void stuInfoShowOption() {

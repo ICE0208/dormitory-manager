@@ -22,7 +22,7 @@ int confirmPassword(char* zeroMsg) {
 			else printf("\n");
 			err = 0;
 
-			printf("입력 (숫자, 알파벳만 가능, 최대 20자) > ");
+			printf("비밀번호 입력 > ");
 		}
 		printMsg = 0;
 
@@ -168,7 +168,7 @@ int setPassword(char* msg, char* zeroMsg) {
 			else printf("\n");
 			err = 0;
 
-			printf("비밀번호 확인 > ");
+			printf("비밀번호 설정 재확인 > ");
 		}
 		printMsg = 0;
 

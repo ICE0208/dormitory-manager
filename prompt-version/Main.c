@@ -5,7 +5,7 @@
 
 int main() {
 	// 콘솔 세팅
-	setFontSize(20, 20);
+	setFontSize(24, 24);
 	system("mode con cols=100 lines=24");
 	textcolor(15);
 
