@@ -173,7 +173,7 @@ void setDefaultStu(STUDENT* stu) {
 	}
 }
 
-// 모든 동의 정보를 파일로 저장합니다.
+// 모든 정보를 파일로 저장합니다.
 void saveAllInfo() {
 	mkdir("c:\\dormanager");
 	FILE* fp = fopen("c:\\dormanager\\info.bin", "wb");

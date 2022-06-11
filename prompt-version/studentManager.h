@@ -5,6 +5,7 @@
 #include <string.h>
 #include <direct.h>
 #include "extraFunc.h"
+#include "password.h"
 
 typedef struct {
 	char name[TEXTMAX]; // 이름

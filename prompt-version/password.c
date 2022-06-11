@@ -2,6 +2,26 @@
 
 char password[PW_MAX+1] = { '\0', };
 
+void savePassword() {
+	mkdir("c:\\dormanager");
+	FILE* fp = fopen("c:\\dormanager\\dorpw.bin", "wb");
+	fwrite(password, PW_MAX+1, 1, fp); // 비밀번호 저장
+	printf("저장 완료");
+	fclose(fp);
+}
+
+void loadPassword() {
+	FILE* fp = fopen("c:\\dormanager\\dorpw.bin", "rb");
+	if (fp == NULL) {
+		printf("파일을 찾을 수 없음\n");
+		return;
+	}
+	char temp[PW_MAX + 1] = { '\0', };
+	int check = fread(temp, PW_MAX + 1, 1, fp);
+	strcpy(password, temp);
+	fclose(fp);
+}
+
 void setPassword(char* msg) {
 	setTitle(L"비밀번호 설정 화면");
 	int printMsg = 1;
