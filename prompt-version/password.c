@@ -22,7 +22,7 @@ void loadPassword() {
 	fclose(fp);
 }
 
-void setPassword(char* msg) {
+void setPassword(char* msg, char* zeroMsg) {
 	setTitle(L"비밀번호 설정 화면");
 	int printMsg = 1;
 	int err = 0;
@@ -33,7 +33,7 @@ void setPassword(char* msg) {
 	while (1) {
 		if (printMsg == 1) {
 			system(CLEAR);
-			printf("%s\n\n[0] 뒤로 가기\n\n", msg);
+			printf("%s\n\n[0] %s\n\n", msg, zeroMsg);
 
 			if (err == 1) printf("<비밀번호는 4글자 이상이어야 합니다.>\n");
 			else printf("\n");
@@ -56,6 +56,7 @@ void setPassword(char* msg) {
 
 		if (('a' <= ic && 'z') || ('A' <= ic && 'Z') ||
 			('0' <= ic && '9')) { // 정상적인 값 입력
+			if (index >= 20) continue; // 20 글자 넘을 때 입력 안되게
 			printf("*");
 			temp[index] = ic;
 			index++;

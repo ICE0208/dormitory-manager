@@ -5,13 +5,6 @@
 
 int main() {
 
-	loadPassword();
-	if (password[0] == '\0') {
-		setPassword("[초기 비밀번호 세팅]");
-	}
-	savePassword();
-	printf("\npw: %s\n", password);
-
 	system("pause");
 
 	return;
