@@ -18,8 +18,10 @@ void stuInfoScreen(DONG* dong, int floor, int ho, int stu_i) {
 void printStuInfo(DONG* dong, int floor, int ho, int stu_i) {
 	STUDENT* stu = &(dong->students[floor-1][ho-1][stu_i-1]);
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("정보 출력 화면]\n");
+	textcolor(15);
 
 	// 출력할 학생 정보가 없을 때
 	if (stu->snum == 0) {
@@ -115,8 +117,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 이름
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 이름을 입력해주세요.\n\n입력 > ");
 	char newStuName[TEXTMAX] = { '\0', };
 	while (1) {
@@ -130,8 +134,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 글자 수 초과
 		if (clearBuffer() == 1 || strlen(newStuName) == 0) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 이름을 입력해주세요.");
 			printf("\n<학생의 이름이 너무 깁니다.>\n입력 > ");
 			continue;
@@ -142,8 +148,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 성별
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 1);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 성별을 입력해주세요. (1: 남자, 2: 여자)\n\n입력 > ");
 	int isMan = -1;
@@ -156,8 +164,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값이 입력됐을 때
 		if (isMan != 1 && isMan != 2) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printCurStu(&newStu, 1);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 성별을 입력해주세요. (1: 남자, 2: 여자)\n");
 			printf("올바른 값을 입력해주세요.\n입력 > ");
@@ -170,8 +180,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 학번
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 2);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 학번을 입력해주세요.\n\n입력 > ");
 	char newStuNum[TEXTMAX] = { '\0', };
@@ -187,8 +199,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 글자 수 초과
 		if (clearBuffer() == 1 || strlen(newStuNum) == 0 || strlen(newStuNum) > 10) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printCurStu(&newStu, 2);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 학번을 입력해주세요.");
 			printf("\n<학번이 너무 깁니다.>\n입력 > ");
@@ -199,8 +213,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		newSNum = (int) strtol(newStuNum, NULL, 10);
 		if (newSNum == 0) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printCurStu(&newStu, 2);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 이름을 입력해주세요.");
 			printf("\n<올바른 학번을 입력해주세요.>\n입력 > ");
@@ -213,8 +229,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 학년
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 3);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 학년을 입력해주세요.\n\n입력 > ");
 	int newStuGrade = -1;
@@ -241,8 +259,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 전공
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 4);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 전공을 입력해주세요.\n\n입력 > ");
 	char newStuMajor[TEXTMAX] = { '\0', };
@@ -257,8 +277,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 글자 수 초과
 		if (clearBuffer() == 1 || strlen(newStuMajor) == 0) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printCurStu(&newStu, 4);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 전공을 입력해주세요.");
 			printf("\n<전공 글자 수가 너무 깁니다.>\n입력 > ");
@@ -270,8 +292,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 전화번호
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 5);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 전화번호를 입력해주세요.\n\n입력 > ");
 	char newStuPhoneNum[TEXTMAX] = { '\0', };
@@ -286,8 +310,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 글자 수 초과
 		if (clearBuffer() == 1 || strlen(newStuPhoneNum) == 0) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printCurStu(&newStu, 5);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 전화번호를 입력해주세요.");
 			printf("\n<전화번호가 너무 깁니다.>\n입력 > ");
@@ -299,8 +325,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 조식여부
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 6);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 조식신청 여부 입력해주세요. (o/x)\n\n입력 > ");
 	char newStuBreakfast[TEXTMAX] = { '\0', };
@@ -317,8 +345,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 			(strcmp(newStuBreakfast, "O") != 0 && strcmp(newStuBreakfast, "o") != 0) 
 			&& strcmp(newStuBreakfast, "X") != 0 && strcmp(newStuBreakfast, "x") != 0) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printCurStu(&newStu, 6);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 조식신청 여부 입력해주세요. (o/x)");
 			printf("\n<올바른 값을 입력해주세요.>\n입력 > ");
@@ -339,8 +369,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	int newStuOutDate[3] = { -1, -1, -1 };
 	// 연도
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 7);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 퇴실 날짜의 연도를 입력해주세요. (____-__-__)\n\n입력 > ");
 	while (1) {
@@ -352,8 +384,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값이 입력됐을 때
 		if (newStuOutDate[0] < 2022 || newStuOutDate[0] > 3000) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printCurStu(&newStu, 7);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 퇴실 날짜의 연도를 입력해주세요. (____-__-__)\n");
 			printf("올바른 연도를 입력해주세요.\n입력 > ");
@@ -364,8 +398,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	}
 	// 월
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 7);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 퇴실 날짜의 월을 입력해주세요. (%04d-__-__)\n\n입력 > ", newStu.outDate[0]);
 	while (1) {
@@ -377,8 +413,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값이 입력됐을 때
 		if (newStuOutDate[1] < 1 || newStuOutDate[1] > 12) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printCurStu(&newStu, 7);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 퇴실 날짜의 월을 입력해주세요. (%04d-__-__)\n", newStu.outDate[0]);
 			printf("올바른 월을 입력해주세요.\n입력 > ");
@@ -389,8 +427,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 	}
 	// 일
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 7);
 	printf("[0] 뒤로 가기\n\n새로운 학생의 퇴실 날짜의 일을 입력해주세요. (%04d-%02d-__)\n\n입력 > ", 
 		newStu.outDate[0], newStu.outDate[1]);
@@ -403,8 +443,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값이 입력됐을 때
 		if (newStuOutDate[2] < 1 || newStuOutDate[2] > 31) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("새로운 학생으로 추가]\n\n");
+			textcolor(15);
 			printCurStu(&newStu, 7);
 			printf("[0] 뒤로 가기\n\n새로운 학생의 퇴실 날짜의 일을 입력해주세요. (%04d-%02d-__)\n",
 				newStu.outDate[0], newStu.outDate[1]);
@@ -417,8 +459,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 확인 절차
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("새로운 학생으로 추가]\n\n");
+	textcolor(15);
 	printCurStu(&newStu, 8);
 	printf("이 정보를 %s %d층 %d%02d호 학생%d에 추가하시겠습니까?\n",
 		dong->name, floor, floor, ho, stu_i);
@@ -454,8 +498,10 @@ void addNewStu(DONG* dong, int floor, int ho, int stu_i) {
 void removeCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	setTitle(L"학생 정보 화면 - 현재 학생 정보 삭제");
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 삭제]\n\n");
+	textcolor(15);
 	STUDENT* stu = &(dong->students[floor - 1][ho - 1][stu_i - 1]);
 	if (stu->snum == 0) {
 		printf("<삭제할 학생의 정보가 없습니다.>\n\n");
@@ -500,8 +546,10 @@ void removeCurStu(DONG* dong, int floor, int ho, int stu_i) {
 void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	setTitle(L"학생 정보 화면 - 현재 학생 정보 수정");
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	STUDENT* stu = &(dong->students[floor - 1][ho - 1][stu_i - 1]);
 	if (stu->snum == 0) {
 		printf("<수정할 학생의 정보가 없습니다.>\n\n");
@@ -516,8 +564,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 이름 변경할건지 확인
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	printCurStu(&tempStu, 8);
 	printf("[0] 뒤로 가기\n\n학생의 이름을 변경하시겠습니까? (1: 예 / 2: 아니오)\n\n");
 	printf("입력 > ");
@@ -530,8 +580,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값
 		if (check != 1 && check != 2) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("현재 학생 정보 수정]\n\n");
+			textcolor(15);
 			printCurStu(&tempStu, 8);
 			printf("[0] 뒤로 가기\n\n학생의 이름을 변경하시겠습니까? (1: 예 / 2: 아니오)\n");
 			printf("올바른 값을 입력해주세요.\n입력> ");
@@ -543,8 +595,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	if (check == 1) {
 		// 이름
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 이름을 입력해주세요.\n\n입력 > ");
 		char newStuName[TEXTMAX] = { '\0', };
@@ -559,8 +613,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			// 글자 수 초과
 			if (clearBuffer() == 1 || strlen(newStuName) == 0) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 이름을 입력해주세요.");
 				printf("\n<학생의 이름이 너무 깁니다.>\n입력 > ");
@@ -574,8 +630,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 성별 변경할건지 확인
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	printCurStu(&tempStu, 8);
 	printf("[0] 뒤로 가기\n\n학생의 성별을 변경하시겠습니까? (1: 예 / 2: 아니오)\n\n");
 	printf("입력 > ");
@@ -588,8 +646,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값
 		if (check != 1 && check != 2) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("현재 학생 정보 수정]\n\n");
+			textcolor(15);
 			printCurStu(&tempStu, 8);
 			printf("[0] 뒤로 가기\n\n학생의 성별을 변경하시겠습니까? (1: 예 / 2: 아니오)\n");
 			printf("올바른 값을 입력해주세요.\n입력> ");
@@ -600,8 +660,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	if (check == 1) {
 		// 성별
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 성별을 입력해주세요. (1: 남자, 2: 여자)\n\n입력 > ");
 		int isMan = -1;
@@ -614,8 +676,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			// 다른 값이 입력됐을 때
 			if (isMan != 1 && isMan != 2) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 성별을 입력해주세요. (1: 남자, 2: 여자)\n");
 				printf("올바른 값을 입력해주세요.\n입력 > ");
@@ -630,8 +694,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 학번 변경할건지 확인
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	printCurStu(&tempStu, 8);
 	printf("[0] 뒤로 가기\n\n학생의 학번을 변경하시겠습니까? (1: 예 / 2: 아니오)\n\n");
 	printf("입력 > ");
@@ -644,8 +710,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값
 		if (check != 1 && check != 2) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("현재 학생 정보 수정]\n\n");
+			textcolor(15);
 			printCurStu(&tempStu, 8);
 			printf("[0] 뒤로 가기\n\n학생의 학번을 변경하시겠습니까? (1: 예 / 2: 아니오)\n");
 			printf("올바른 값을 입력해주세요.\n입력> ");
@@ -656,8 +724,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	if (check == 1) {
 		// 학번
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 학번을 입력해주세요.\n\n입력 > ");
 		char newStuNum[TEXTMAX] = { '\0', };
@@ -673,8 +743,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			// 글자 수 초과
 			if (clearBuffer() == 1 || strlen(newStuNum) == 0 || strlen(newStuNum) > 10) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 학번을 입력해주세요.");
 				printf("\n<학번이 너무 깁니다.>\n입력 > ");
@@ -685,8 +757,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			newSNum = (int)strtol(newStuNum, NULL, 10);
 			if (newSNum == 0) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 이름을 입력해주세요.");
 				printf("\n<올바른 학번을 입력해주세요.>\n입력 > ");
@@ -701,8 +775,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 학년 변경할건지 확인
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	printCurStu(&tempStu, 8);
 	printf("[0] 뒤로 가기\n\n학생의 학년을 변경하시겠습니까? (1: 예 / 2: 아니오)\n\n");
 	printf("입력 > ");
@@ -715,8 +791,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값
 		if (check != 1 && check != 2) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("현재 학생 정보 수정]\n\n");
+			textcolor(15);
 			printCurStu(&tempStu, 8);
 			printf("[0] 뒤로 가기\n\n학생의 학년을 변경하시겠습니까? (1: 예 / 2: 아니오)\n");
 			printf("올바른 값을 입력해주세요.\n입력> ");
@@ -727,8 +805,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	if (check == 1) {
 		// 학년
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 학년을 입력해주세요.\n\n입력 > ");
 		int newStuGrade = -1;
@@ -741,8 +821,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			// 다른 값이 입력됐을 때
 			if (newStuGrade < 1 || newStuGrade > 10) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 학년을 입력해주세요.\n");
 				printf("올바른 값을 입력해주세요.\n입력 > ");
@@ -757,8 +839,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 전공 변경할건지 확인
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	printCurStu(&tempStu, 8);
 	printf("[0] 뒤로 가기\n\n학생의 전공을 변경하시겠습니까? (1: 예 / 2: 아니오)\n\n");
 	printf("입력 > ");
@@ -771,8 +855,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값
 		if (check != 1 && check != 2) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("현재 학생 정보 수정]\n\n");
+			textcolor(15);
 			printCurStu(&tempStu, 8);
 			printf("[0] 뒤로 가기\n\n학생의 전공을 변경하시겠습니까? (1: 예 / 2: 아니오)\n");
 			printf("올바른 값을 입력해주세요.\n입력> ");
@@ -783,8 +869,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	if (check == 1) {
 		// 전공
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 전공을 입력해주세요.\n\n입력 > ");
 		char newStuMajor[TEXTMAX] = { '\0', };
@@ -799,8 +887,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			// 글자 수 초과
 			if (clearBuffer() == 1 || strlen(newStuMajor) == 0) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 전공을 입력해주세요.");
 				printf("\n<전공 글자 수가 너무 깁니다.>\n입력 > ");
@@ -814,8 +904,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 전화번호 변경할건지 확인
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	printCurStu(&tempStu, 8);
 	printf("[0] 뒤로 가기\n\n학생의 전화번호를 변경하시겠습니까? (1: 예 / 2: 아니오)\n\n");
 	printf("입력 > ");
@@ -828,8 +920,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값
 		if (check != 1 && check != 2) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("현재 학생 정보 수정]\n\n");
+			textcolor(15);
 			printCurStu(&tempStu, 8);
 			printf("[0] 뒤로 가기\n\n학생의 전화번호룰 변경하시겠습니까? (1: 예 / 2: 아니오)\n");
 			printf("올바른 값을 입력해주세요.\n입력> ");
@@ -840,8 +934,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	if (check == 1) {
 		// 전화번호
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 전화번호를 입력해주세요.\n\n입력 > ");
 		char newStuPhoneNum[TEXTMAX] = { '\0', };
@@ -856,8 +952,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			// 글자 수 초과
 			if (clearBuffer() == 1 || strlen(newStuPhoneNum) == 0) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 전화번호를 입력해주세요.");
 				printf("\n<전화번호가 너무 깁니다.>\n입력 > ");
@@ -871,8 +969,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 조식여부 변경할건지 확인
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	printCurStu(&tempStu, 8);
 	printf("[0] 뒤로 가기\n\n학생의 조식여부를 변경하시겠습니까? (1: 예 / 2: 아니오)\n\n");
 	printf("입력 > ");
@@ -885,8 +985,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값
 		if (check != 1 && check != 2) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("현재 학생 정보 수정]\n\n");
+			textcolor(15);
 			printCurStu(&tempStu, 8);
 			printf("[0] 뒤로 가기\n\n학생의 조식여부를 변경하시겠습니까? (1: 예 / 2: 아니오)\n");
 			printf("올바른 값을 입력해주세요.\n입력> ");
@@ -897,8 +999,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 	if (check == 1) {
 		// 조식여부
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 조식신청 여부 입력해주세요. (o/x)\n\n입력 > ");
 		char newStuBreakfast[TEXTMAX] = { '\0', };
@@ -915,8 +1019,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 				(strcmp(newStuBreakfast, "O") != 0 && strcmp(newStuBreakfast, "o") != 0)
 				&& strcmp(newStuBreakfast, "X") != 0 && strcmp(newStuBreakfast, "x") != 0) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 조식신청 여부 입력해주세요. (o/x)");
 				printf("\n<올바른 값을 입력해주세요.>\n입력 > ");
@@ -937,8 +1043,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 퇴실날짜 변경할건지 확인
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	printCurStu(&tempStu, 8);
 	printf("[0] 뒤로 가기\n\n학생의 퇴실날짜를 변경하시겠습니까? (1: 예 / 2: 아니오)\n\n");
 	printf("입력 > ");
@@ -951,8 +1059,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		// 다른 값
 		if (check != 1 && check != 2) {
 			system(CLEAR);
+			textcolor(11);
 			printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 			printf("현재 학생 정보 수정]\n\n");
+			textcolor(15);
 			printCurStu(&tempStu, 8);
 			printf("[0] 뒤로 가기\n\n학생의 퇴실날짜를 변경하시겠습니까? (1: 예 / 2: 아니오)\n");
 			printf("올바른 값을 입력해주세요.\n입력> ");
@@ -965,8 +1075,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		int newStuOutDate[3] = { -1, -1, -1 };
 		// 연도
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 퇴실 날짜의 연도를 입력해주세요. (____-__-__)\n\n입력 > ");
 		while (1) {
@@ -978,8 +1090,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			// 다른 값이 입력됐을 때
 			if (newStuOutDate[0] < 2022 || newStuOutDate[0] > 3000) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 퇴실 날짜의 연도를 입력해주세요. (____-__-__)\n");
 				printf("올바른 연도를 입력해주세요.\n입력 > ");
@@ -990,8 +1104,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		}
 		// 월
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 퇴실 날짜의 월을 입력해주세요. (%04d-__-__)\n\n입력 > ", tempStu.outDate[0]);
 		while (1) {
@@ -1003,8 +1119,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			// 다른 값이 입력됐을 때
 			if (newStuOutDate[1] < 1 || newStuOutDate[1] > 12) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 퇴실 날짜의 월을 입력해주세요. (%04d-__-__)\n", tempStu.outDate[0]);
 				printf("올바른 월을 입력해주세요.\n입력 > ");
@@ -1015,8 +1133,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 		}
 		// 일
 		system(CLEAR);
+		textcolor(11);
 		printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 		printf("현재 학생 정보 수정]\n\n");
+		textcolor(15);
 		printCurStu(&tempStu, 8);
 		printf("[0] 뒤로 가기\n\n수정할 학생의 퇴실 날짜의 일을 입력해주세요. (%04d-%02d-__)\n\n입력 > ",
 			tempStu.outDate[0], tempStu.outDate[1]);
@@ -1029,8 +1149,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 			// 다른 값이 입력됐을 때
 			if (newStuOutDate[2] < 1 || newStuOutDate[2] > 31) {
 				system(CLEAR);
+				textcolor(11);
 				printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 				printf("현재 학생 정보 수정]\n\n");
+				textcolor(15);
 				printCurStu(&tempStu, 8);
 				printf("[0] 뒤로 가기\n\n수정할 학생의 퇴실 날짜의 일을 입력해주세요. (%04d-%02d-__)\n",
 					tempStu.outDate[0], tempStu.outDate[1]);
@@ -1044,8 +1166,10 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 
 	// 확인 절차
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호 학생%d - ", dong->name, floor, floor, ho, stu_i);
 	printf("현재 학생 정보 수정]\n\n");
+	textcolor(15);
 	printCurStu(&tempStu, 8);
 	printf("%s %d층 %d%02d호 학생%d을 이 정보로 수정하시겠습니까?\n",
 		dong->name, floor, floor, ho, stu_i);

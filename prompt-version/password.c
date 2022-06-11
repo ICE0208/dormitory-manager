@@ -13,7 +13,10 @@ int confirmPassword(char* zeroMsg) {
 	while (1) {
 		if (printMsg == 1) {
 			system(CLEAR);
-			printf("[비밀번호 확인]\n\n[0] %s\n\n", zeroMsg);
+			textcolor(11);
+			printf("[비밀번호 확인]\n\n");
+			textcolor(15);
+			printf("[0] %s\n\n", zeroMsg);
 
 			if (err == 1) printf("<비밀번호가 일치하지 않습니다.>\n");
 			else printf("\n");
@@ -69,7 +72,6 @@ void savePassword() {
 	mkdir("c:\\dormanager");
 	FILE* fp = fopen("c:\\dormanager\\dorpw.bin", "wb");
 	fwrite(password, PW_MAX+1, 1, fp); // 비밀번호 저장
-	printf("저장 완료");
 	fclose(fp);
 }
 
@@ -96,7 +98,10 @@ int setPassword(char* msg, char* zeroMsg) {
 	while (1) {
 		if (printMsg == 1) {
 			system(CLEAR);
-			printf("%s\n\n[0] %s\n\n", msg, zeroMsg);
+			textcolor(11);
+			printf("%s\n\n", msg);
+			textcolor(15);
+			printf("[0] %s\n\n", zeroMsg);
 
 			if (err == 1) printf("<비밀번호는 4글자 이상이어야 합니다.>\n");
 			else printf("\n");
@@ -154,7 +159,10 @@ int setPassword(char* msg, char* zeroMsg) {
 	while (1) {
 		if (printMsg == 1) {
 			system(CLEAR);
-			printf("%s\n\n[0] %s\n\n", msg, zeroMsg);
+			textcolor(11);
+			printf("%s\n\n", msg);
+			textcolor(15);
+			printf("[0] %s\n\n", zeroMsg);
 
 			if (err == 1) printf("<비밀번호가 일치하지 않습니다.>\n");
 			else printf("\n");

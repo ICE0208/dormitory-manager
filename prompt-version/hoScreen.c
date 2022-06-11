@@ -15,8 +15,10 @@ void hoScreen(DONG* dong, int floor) {
 
 void hoShowOption(DONG* dong, int floor) {
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 - ", dong->name, floor);
 	printf("호 선택 화면]\n\n");
+	textcolor(15);
 
 	// xx01호 부터 xx20호까지 인덱스와 함께 출력
 	for (int i = 1; i <= HOMAX; i++) {
