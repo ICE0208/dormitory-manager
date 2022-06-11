@@ -146,6 +146,7 @@
     <ClCompile Include="hoScreen.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="mainScreen.c" />
+    <ClCompile Include="password.c" />
     <ClCompile Include="searchScreen.c" />
     <ClCompile Include="studentManager.c" />
     <ClCompile Include="stuInfoScreen.c" />
@@ -157,6 +158,7 @@
     <ClInclude Include="floorScreen.h" />
     <ClInclude Include="hoScreen.h" />
     <ClInclude Include="mainScreen.h" />
+    <ClInclude Include="password.h" />
     <ClInclude Include="searchScreen.h" />
     <ClInclude Include="studentManager.h" />
     <ClInclude Include="stuInfoScreen.h" />

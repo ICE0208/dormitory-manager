@@ -1,6 +1,7 @@
 ﻿#include <stdio.h>
 #include "mainScreen.h"
 #include "studentManager.h"
+#include "password.h"
 
 int main() {
 
