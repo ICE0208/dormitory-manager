@@ -18,8 +18,10 @@ void floorScreen(int dongIndex) {
 
 void floorShowOption(char* dongName) {
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s - ", dongName);
 	printf("층 선택 화면]\n\n");
+	textcolor(15);
 
 	// 1층부터 15층까지 인덱스와 함께 출력
 	for (int i = 1; i <= FLOORMAX; i++) {

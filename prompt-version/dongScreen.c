@@ -23,7 +23,9 @@ void dongScreen() {
 
 void dongShowOption() {
     system(CLEAR);
+    textcolor(11);
     printf("[동 선택 화면]\n\n");
+    textcolor(15);
     showAllDong();
     printf("\n[21] 동 추가\n[22] 동 삭제\n[23] 동 순서 변경\n[0] 초기 화면\n\n");
 }
@@ -73,7 +75,9 @@ int dongGetUserInput() {
 void deleteDong() {
     system(CLEAR);
     int selected;
+    textcolor(11);
     printf("[동 삭제 화면]\n\n");
+    textcolor(15);
     showAllDong();
     // 동의 개수가 0개라면
     if (getDongCount() == 0) {
@@ -92,7 +96,9 @@ void deleteDong() {
         if ((0 <= selected && selected <= getDongCount())) break;
 
         system(CLEAR);
+        textcolor(11);
         printf("[동 삭제 화면]\n\n");
+        textcolor(15);
         showAllDong();
         printf("\n[0] 뒤로 가기\n\n");
         printf("<잘못된 값을 입력하셨습니다. 다시 입력해주세요.>\n");
@@ -127,7 +133,9 @@ void addDong() {
     system(CLEAR);
     // 동이 이미 20개면 종료
     if (getDongCount() >= 20) {
+        textcolor(11);
         printf("[동 추가 화면]\n\n");
+        textcolor(15);
         printf("<동을 더이상 추가할 수 없습니다.>\n\n");
         printf("아무 키나 누르면 돌아갑니다.");
         getch();
@@ -135,7 +143,10 @@ void addDong() {
     }
 
     char newDongName[TEXTMAX] = { '\0', };
-    printf("[동 추가 화면]\n\n[0] 뒤로 가기\n\n");
+    textcolor(11);
+    printf("[동 추가 화면]\n\n");
+    textcolor(15);
+    printf("[0] 뒤로 가기\n\n");
     printf("추가할 동의 이름을 입력하세요\n\n입력 > ");
     while (1) {
         scanf_s("%[^\n]s", newDongName, sizeof(newDongName));
@@ -148,7 +159,9 @@ void addDong() {
         // 글자 수 초과
         if (clearBuffer() == 1 || strlen(newDongName) == 0) {
             system(CLEAR);
+            textcolor(11);
             printf("[동 추가 화면]\n\n");
+            textcolor(15);
             printf("추가할 동의 이름을 입력하세요\n\n");
             printf("<동의 이름이 너무 깁니다.>\n입력 > ");
             continue;
@@ -156,7 +169,9 @@ void addDong() {
         break;
     }
     system(CLEAR);
+    textcolor(11);
     printf("[동 추가 화면]\n\n");
+    textcolor(15);
     printf("%s를 추가하시겠습니까?\n[y] 예   [다른값] 아니오\n\n입력 > ", newDongName);
     char confirm;
     scanf("%c", &confirm);
@@ -179,7 +194,9 @@ void changeDongIndex() {
     // 순서를 바꿀 첫 번째 동 입력받기
     system(CLEAR);
     int target_1;
+    textcolor(11);
     printf("[동 순서 변경 화면]\n\n");
+    textcolor(15);
 
     // 동의 개수가 1개 이하라면
     if (getDongCount() <= 1) {
@@ -200,7 +217,9 @@ void changeDongIndex() {
         if ((0 <= target_1 && target_1 <= getDongCount())) break;
 
         system(CLEAR);
+        textcolor(11);
         printf("[동 순서 변경 화면]\n\n");
+        textcolor(15);
         showAllDong();
         printf("\n[0] 뒤로 가기\n\n");
         printf("[순서를 바꿀 동의 번호를 입력해주세요.]\n");
@@ -215,7 +234,9 @@ void changeDongIndex() {
     // 순서를 바꿀 두 번째 동 입력받기
     system(CLEAR);
     int target_2;
+    textcolor(11);
     printf("[동 순서 변경 화면]\n\n");
+    textcolor(15);
     showAllDong();
     printf("\n[0] 뒤로 가기\n\n");
     printf("[%d번의 동과 순서를 바꿀 동의 번호를 입력해주세요.]\n\n", target_1);
@@ -229,7 +250,9 @@ void changeDongIndex() {
             if (target_1 != target_2) break;
             // 입력을 정상적이지만 순서를 바꿀 대상이 같을 때
             system(CLEAR);
+            textcolor(11);
             printf("[동 순서 변경 화면]\n\n");
+            textcolor(15);
             showAllDong();
             printf("\n[0] 뒤로 가기\n\n");
             printf("[%d번의 동과 순서를 바꿀 동의 번호를 입력해주세요.]\n", target_1);
@@ -238,7 +261,9 @@ void changeDongIndex() {
             continue;
         }
         system(CLEAR);
+        textcolor(11);
         printf("[동 순서 변경 화면]\n\n");
+        textcolor(15);
         showAllDong();
         printf("\n[0] 뒤로 가기\n\n");
         printf("[%d번의 동과 순서를 바꿀 동의 번호를 입력해주세요.]\n", target_1);
@@ -251,7 +276,9 @@ void changeDongIndex() {
     }
 
     system(CLEAR);
+    textcolor(11);
     printf("[동 순서 변경 화면]\n\n");
+    textcolor(15);
     printf("[%d]%s과 [%d]%s의 순서를 변경하시겠습니까?\n[y] 예   [다른값] 아니오\n\n입력 > ",
         target_1, getDongName(target_1), target_2, getDongName(target_2));
     char confirm;

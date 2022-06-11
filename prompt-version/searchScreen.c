@@ -27,7 +27,9 @@ void searchMoveTo(int option) {
 }
 
 void searchShowOption() {
+    textcolor(11);
 	printf("[검색 화면]\n\n");
+    textcolor(15);
 	printf("[1] 이름으로 찾기\n");
 	printf("[2] 학번으로 찾기\n");
 	printf("[0] 뒤로 가기\n\n");
@@ -52,7 +54,9 @@ int searchGetUserInput() {
 void searchName() {
     setTitle(L"검색 화면 - 이름 검색");
     system(CLEAR);
+    textcolor(11);
     printf("[이름으로 검색하기]\n\n");
+    textcolor(15);
     printf("[0] 뒤로 가기\n\n입력 > ");
 
     char searchingName[TEXTMAX] = { '\0', };
@@ -67,7 +71,9 @@ void searchName() {
         // 글자 수 초과
         if (clearBuffer() == 1 || strlen(searchingName) == 0) {
             system(CLEAR);
+            textcolor(11);
             printf("[이름으로 검색하기]\n\n");
+            textcolor(15);
             printf("[0] 뒤로 가기\n");
             printf("\n<학생의 이름이 너무 깁니다.>\n입력 > ");
             continue;
@@ -113,7 +119,9 @@ void searchName() {
     while (1) {
         selected = -1;
         system(CLEAR);
+        textcolor(11);
         printf("[이름으로 검색하기]\n\n");
+        textcolor(15);
 
         // 연결리스트에 저장된 값 모두 출력
         FOUND_STU* cur = head->next;
@@ -137,7 +145,9 @@ void searchName() {
 
             if (selected < 1 || selected > index) {
                 system(CLEAR);
+                textcolor(11);
                 printf("[이름으로 검색하기]\n\n");
+                textcolor(15);
                 // 연결리스트에 저장된 값 모두 출력
                 FOUND_STU* cur = head->next;
                 int index = 0;
@@ -206,7 +216,9 @@ void searchName() {
 void searchSnum() {
     setTitle(L"검색 화면 - 학번 검색");
     system(CLEAR);
+    textcolor(11);
     printf("[학번으로 검색하기]\n\n");
+    textcolor(15);
     printf("[0] 뒤로 가기\n\n입력 > ");
 
     // 찾을 학번 입력 받기
@@ -223,8 +235,10 @@ void searchSnum() {
         // 글자 수 초과
         if (clearBuffer() == 1 || strlen(searchingSnum) == 0 || strlen(searchingSnum) > 10) {
             system(CLEAR);
+            textcolor(11);
             printf("[학번으로 검색하기]\n\n");
-            printf("[0] 뒤로 가기\n\n입력 > ");
+            textcolor(15);
+            printf("[0] 뒤로 가기\n");
             printf("\n<학번이 너무 깁니다.>\n입력 > ");
             continue;
         }
@@ -233,8 +247,10 @@ void searchSnum() {
         searchingSnumInt = (int)strtol(searchingSnum, NULL, 10);
         if (searchingSnumInt == 0) {
             system(CLEAR);
+            textcolor(11);
             printf("[학번으로 검색하기]\n\n");
-            printf("[0] 뒤로 가기\n\n입력 > ");
+            textcolor(15);
+            printf("[0] 뒤로 가기\n");
             printf("\n<올바른 학번을 입력해주세요.>\n입력 > ");
             continue;
         }
@@ -279,7 +295,9 @@ void searchSnum() {
     while (1) {
         selected = -1;
         system(CLEAR);
+        textcolor(11);
         printf("[학번으로 검색하기]\n\n");
+        textcolor(15);
 
         // 연결리스트에 저장된 값 모두 출력
         FOUND_STU* cur = head->next;
@@ -303,7 +321,9 @@ void searchSnum() {
 
             if (selected < 1 || selected > index) {
                 system(CLEAR);
+                textcolor(11);
                 printf("[학번으로 검색하기]\n\n");
+                textcolor(15);
                 // 연결리스트에 저장된 값 모두 출력
                 FOUND_STU* cur = head->next;
                 int index = 0;

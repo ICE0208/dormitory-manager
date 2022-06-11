@@ -64,3 +64,5 @@
 extern int clearBuffer();
 extern void setTitle(wchar_t* title);
 extern void printInputErrMsg();
+void setFontSize(int a, int b);
+void textcolor(int color_number);

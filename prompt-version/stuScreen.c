@@ -16,8 +16,10 @@ void stuScreen(DONG* dong, int floor, int ho) {
 
 void stuShowOption(DONG* dong, int floor, int ho) {
 	system(CLEAR);
+	textcolor(11);
 	printf("[%s %d층 %d%02d호- ", dong->name, floor, floor, ho);
 	printf("학생 선택 화면]\n\n");
+	textcolor(15);
 
 	// 학생1 ~ 학생3 인덱스, 학생 이름과 함께 출력
 	for (int i = 1; i <= STUMAX; i++) {
