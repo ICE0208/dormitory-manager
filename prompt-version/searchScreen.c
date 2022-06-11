@@ -238,7 +238,7 @@ void searchSnum() {
             textcolor(11);
             printf("[학번으로 검색하기]\n\n");
             textcolor(15);
-            printf("[0] 뒤로 가기\n\n입력 > ");
+            printf("[0] 뒤로 가기\n");
             printf("\n<학번이 너무 깁니다.>\n입력 > ");
             continue;
         }
@@ -250,7 +250,7 @@ void searchSnum() {
             textcolor(11);
             printf("[학번으로 검색하기]\n\n");
             textcolor(15);
-            printf("[0] 뒤로 가기\n\n입력 > ");
+            printf("[0] 뒤로 가기\n");
             printf("\n<올바른 학번을 입력해주세요.>\n입력 > ");
             continue;
         }
