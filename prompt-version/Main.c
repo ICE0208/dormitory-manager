@@ -4,6 +4,10 @@
 #include "password.h"
 
 int main() {
+	// 콘솔 세팅
+	setFontSize(20, 20);
+	system("mode con cols=100 lines=24");
+	textcolor(15);
 
 	// 비밀번호 관련
 	loadPassword(); // 파일에 저장되어 있는 비밀번호를 불러옵니다.
