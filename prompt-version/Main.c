@@ -5,9 +5,15 @@
 
 int main() {
 
-	system("pause");
+	// 비밀번호 관련
+	loadPassword(); // 파일에 저장되어 있는 비밀번호를 불러옵니다.
+	if (password[0] == '\0') { // 비밀번호가 비어있을 때 다시 설정
+		if (setPassword("[비밀번호 초기 설정]", "프로그램 종료") == 0) return;
+	}
+	printf("\npw: %s\n\n", password);
 
-	return;
+	return 0;
+
 
 	setDongList(); // 동 연결리스트를 만듭니다.
 	loadAllInfo(); // 저장된 파일로부터 정보를 불러와서 연결리스트에 추가합니다.
