@@ -8,3 +8,4 @@ void searchShowOption();
 int searchGetUserInput();
 void searchMoveTo(int option);
 void searchName();
+void searchSnum();

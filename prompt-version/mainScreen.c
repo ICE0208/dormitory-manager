@@ -18,13 +18,13 @@ void mainScreen() {
 void mainMoveTo(int option) {
     switch (option) {
     case 0:
-        exit(0);
+        exit(0); // 프로그램 종료
         break;
     case 1:
-        dongScreen();
+        dongScreen(); // 동 선택 화면으로 이동
         break;
     case 2:
-        searchScreen();
+        searchScreen(); // 학생 검색 화면으로 이동
         break;
     }
 }
