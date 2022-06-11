@@ -135,7 +135,7 @@ int setPassword(char* msg, char* zeroMsg) {
 			if (strlen(temp) < 4) {
 				printMsg = 1;
 				err = 1;
-				strcpy(temp, init);
+				memcpy(temp, init, sizeof(temp));
 				index = 0;
 				continue;
 			}
@@ -196,7 +196,8 @@ int setPassword(char* msg, char* zeroMsg) {
 			if (strlen(temp2) < 4 || strcmp(temp, temp2) != 0) {
 				printMsg = 1;
 				err = 1;
-				strcpy(temp2, init);
+				printf("\n\n%s\n%s\n", temp, temp2);
+				memcpy(temp2, init, sizeof(temp2));
 				index = 0;
 				continue;
 			}
