@@ -50,7 +50,7 @@ int confirmPassword(char* zeroMsg) {
 			if (strlen(temp) < 4 || strcmp(password, temp) != 0) {
 				printMsg = 1;
 				err = 1;
-				strcpy(temp, init);
+				memcpy(temp, init, sizeof(temp));
 				index = 0;
 				continue;
 			}
@@ -213,7 +213,7 @@ int setPassword(char* msg, char* zeroMsg) {
 		}
 	}
 
-	strcpy(password, temp);
+	memcpy(password, temp, sizeof(password));
 	savePassword();
 	printf("\n\n[비밀번호 설정이 완료되었습니다.]\n<아무키나 누르면 돌아갑니다.>");
 	getch();
