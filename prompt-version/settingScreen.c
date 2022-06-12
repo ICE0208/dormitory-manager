@@ -8,14 +8,14 @@ void settingScreen() {
 		settingShowOption(); // 옵션 보여주기
 		selected = settingGetUserInput(); // input -> selected
 		if (selected == 0) return;// 0이면 return
-		// moveTo
+		settingMoveTo(selected); // moveTo
 	}
 }
 
 void settingMoveTo(int option) {
 	switch (option) {
 	case 1:
-		// 버전 확인
+		checkVersion(); // 버전 확인
 		break;
 	case 2:
 		// 비밀번호 변경
@@ -46,4 +46,15 @@ int settingGetUserInput() {
 		settingShowOption();
 		printInputErrMsg();
 	}
+}
+
+void checkVersion() {
+	setTitle(L"버전 확인 화면");
+	system(CLEAR);
+	textcolor(11);
+	printf("[버전 확인 화면]\n\n");
+	textcolor(15);
+	printf("현재 버전: ver %s (%s)\n\n\n", CUR_VER, UPDATE_DATE);
+	printf("아무 키나 누르면 돌아갑니다.");
+	getch();
 }
