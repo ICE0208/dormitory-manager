@@ -2,7 +2,7 @@
 
 char password[PW_MAX+1] = { '\0', };
 char exceptchar[] = { 92, 96, 61, 126, 64, 94, 9, 123, 125,
-						124, 58, 60, 62, 63};
+						124, 58, 60, 62, 63, 91, 95, 93};
 
 int confirmPassword(char* zeroMsg) {
 	setTitle(L"비밀번호 확인 화면");
