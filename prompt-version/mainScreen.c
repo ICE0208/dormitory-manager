@@ -3,6 +3,7 @@
 #include "studentManager.h"
 #include "dongScreen.h"
 #include "searchScreen.h"
+#include "settingScreen.h"
 
 void mainScreen() {
     int selected;
