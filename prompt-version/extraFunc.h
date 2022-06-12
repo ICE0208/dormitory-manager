@@ -6,7 +6,7 @@
 #include <windows.h>
 
 #ifndef CUR_VER
-#define CUR_VER "1.1"
+#define CUR_VER "1.2"
 #endif
 
 #ifndef UPDATE_DATE

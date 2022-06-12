@@ -32,7 +32,7 @@ void floorShowOption(char* dongName) {
 }
 
 int floorGetUserInput(char* dongName) {
-	int value;
+	int value = -1;
 	printf("\n");
 	// 올바른 값이 입력될 때까지 반복합니다.
 	while (1) {

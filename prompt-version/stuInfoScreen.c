@@ -50,7 +50,7 @@ void stuInfoShowOption() {
 }
 
 int stuInfoGetUserInput(DONG* dong, int floor, int ho, int stu_i) {
-	int value;
+	int value = -1;
 	printf("\n");
 	// 올바른 값이 입력될 때까지 반복합니다.
 	while (1) {

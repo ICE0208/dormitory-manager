@@ -55,7 +55,7 @@ void dongMoveTo(int option) {
 }
 
 int dongGetUserInput() {
-    int value;
+    int value = -1;
     printf("\n");
     while (1) {
         printf("입력 > ");
