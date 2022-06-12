@@ -18,7 +18,7 @@ void settingMoveTo(int option) {
 		checkVersion(); // 버전 확인
 		break;
 	case 2:
-		// 비밀번호 변경
+		tryChangePw(); // 비밀번호 변경
 		break;
 	}
 }
@@ -57,4 +57,13 @@ void checkVersion() {
 	printf("현재 버전: ver %s (%s)\n\n\n", CUR_VER, UPDATE_DATE);
 	printf("아무 키나 누르면 돌아갑니다.");
 	getch();
+}
+
+void tryChangePw() {
+	// 현재 비밀번호 확인 취소 or 실패
+	if (confirmPassword("뒤로 가기") == 0) return;
+
+	// 비밀번호 재설정 취소 or 실패
+	if (setPassword("[비밀번호 재설정]", "뒤로 가기") == 0) return;
+
 }

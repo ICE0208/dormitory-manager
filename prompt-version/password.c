@@ -215,7 +215,7 @@ int setPassword(char* msg, char* zeroMsg) {
 
 	memcpy(password, temp, sizeof(password));
 	savePassword();
-	printf("\n\n[비밀번호 설정이 완료되었습니다.]\n<아무키나 누르면 돌아갑니다.>");
+	printf("\n\n[비밀번호 설정이 완료되었습니다.]\n아무키나 누르면 돌아갑니다.");
 	getch();
 
 	return 1;
