@@ -66,6 +66,9 @@ void changeDong(int target_1, int target_2) {
 		t_2 = t_2->next;
 	}
 
+	if (t_1 == tail) tail = t_2;
+	else if (t_2 == tail) tail = t_1;
+	
 	DONG* temp = before_t_1->next;
 	before_t_1->next = before_t_2->next;
 	before_t_2->next = temp;
