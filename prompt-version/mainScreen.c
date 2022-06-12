@@ -3,6 +3,7 @@
 #include "studentManager.h"
 #include "dongScreen.h"
 #include "searchScreen.h"
+#include "settingScreen.h"
 
 void mainScreen() {
     int selected;
@@ -25,6 +26,9 @@ void mainMoveTo(int option) {
         break;
     case 2:
         searchScreen(); // 학생 검색 화면으로 이동
+        break;
+    case 3:
+        settingScreen(); // 프로그램 설정 화면으로 이동
         break;
     }
 }

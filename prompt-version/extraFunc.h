@@ -5,6 +5,14 @@
 #include <conio.h>
 #include <windows.h>
 
+#ifndef CUR_VER
+#define CUR_VER "1.0"
+#endif
+
+#ifndef UPDATE_DATE
+#define UPDATE_DATE "2022-06-12"
+#endif
+
 #ifndef CLEAR
 #define CLEAR "cls"
 #endif

@@ -48,6 +48,9 @@
     <ClCompile Include="password.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="settingScreen.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainScreen.h">
@@ -78,6 +81,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="password.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="settingScreen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
