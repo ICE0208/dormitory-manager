@@ -29,7 +29,7 @@ void hoShowOption(DONG* dong, int floor) {
 }
 
 int hoGetUserInput(DONG* dong, int floor) {
-	int value;
+	int value = -1;
 	printf("\n");
 	// 올바른 값이 입력될 때까지 반복합니다.
 	while (1) {

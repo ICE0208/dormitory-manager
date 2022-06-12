@@ -36,7 +36,7 @@ void searchShowOption() {
 }
 
 int searchGetUserInput() {
-    int value;
+    int value = -1;
     printf("\n");
     while (1) {
         printf("입력 > ");
