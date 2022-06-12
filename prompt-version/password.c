@@ -1,6 +1,8 @@
 ﻿#include "password.h"
 
 char password[PW_MAX+1] = { '\0', };
+char exceptchar[] = { 92, 96, 61, 126, 64, 94, 9, 123, 125,
+						124, 58, 60, 62, 63};
 
 int confirmPassword(char* zeroMsg) {
 	setTitle(L"비밀번호 확인 화면");
@@ -10,6 +12,7 @@ int confirmPassword(char* zeroMsg) {
 	int index = 0;
 	char temp[PW_MAX + 1] = { '\0', };
 	char init[PW_MAX + 1] = { '\0', };
+	int doContinue = 0;
 	while (1) {
 		if (printMsg == 1) {
 			system(CLEAR);
@@ -35,7 +38,17 @@ int confirmPassword(char* zeroMsg) {
 			getch();
 			continue;
 		}
-		if (ic == 92 || ic == 96 || ic == 61) continue; // 백슬래시, 물결, 플러스 제외
+		// 여러 특수문자 제외
+		for (int i = 0; i < sizeof(exceptchar); i++) {
+			if (ic == exceptchar[i]) {
+				doContinue = 1;
+				break;
+			}
+		}
+		if (doContinue == 1) {
+			doContinue = 0;
+			continue;
+		}
 
 		if (('a' <= ic && 'z') || ('A' <= ic && 'Z') ||
 			('0' <= ic && '9')) { // 정상적인 값 입력
@@ -95,6 +108,7 @@ int setPassword(char* msg, char* zeroMsg) {
 	int index = 0;
 	char temp[PW_MAX+1] = { '\0', };
 	char init[PW_MAX + 1] = { '\0', };
+	int doContinue = 0;
 	while (1) {
 		if (printMsg == 1) {
 			system(CLEAR);
@@ -120,7 +134,17 @@ int setPassword(char* msg, char* zeroMsg) {
 			getch();
 			continue;
 		}
-		if (ic == 92 || ic == 96 || ic == 61) continue; // 백슬래시, 물결, 플러스 제외
+		// 여러 특수문자 제외
+		for (int i = 0; i < sizeof(exceptchar); i++) {
+			if (ic == exceptchar[i]) {
+				doContinue = 1;
+				break;
+			}
+		}
+		if (doContinue == 1) {
+			doContinue = 0;
+			continue;
+		}
 
 		if (('a' <= ic && 'z') || ('A' <= ic && 'Z') ||
 			('0' <= ic && '9')) { // 정상적인 값 입력
@@ -181,7 +205,17 @@ int setPassword(char* msg, char* zeroMsg) {
 			getch();
 			continue;
 		}
-		if (ic == 92 || ic == 96 || ic == 61) continue; // 백슬래시, 물결, 플러스 제외
+		// 여러 특수문자 제외
+		for (int i = 0; i < sizeof(exceptchar); i++) {
+			if (ic == exceptchar[i]) {
+				doContinue = 1;
+				break;
+			}
+		}
+		if (doContinue == 1) {
+			doContinue = 0;
+			continue;
+		}
 
 		if (('a' <= ic && 'z') || ('A' <= ic && 'Z') ||
 			('0' <= ic && '9')) { // 정상적인 값 입력
