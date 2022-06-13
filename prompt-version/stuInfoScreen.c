@@ -763,7 +763,7 @@ void modifyCurStu(DONG* dong, int floor, int ho, int stu_i) {
 				printf("현재 학생 정보 수정]\n\n");
 				textcolor(15);
 				printCurStu(&tempStu, 8);
-				printf("[0] 뒤로 가기\n\n수정할 학생의 이름을 입력해주세요.");
+				printf("[0] 뒤로 가기\n\n수정할 학생의 학번을 입력해주세요.");
 				printf("\n<올바른 학번을 입력해주세요.>\n입력 > ");
 				continue;
 			}
