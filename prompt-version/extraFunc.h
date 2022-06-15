@@ -6,11 +6,11 @@
 #include <windows.h>
 
 #ifndef CUR_VER
-#define CUR_VER "1.3"
+#define CUR_VER "1.4"
 #endif
 
 #ifndef UPDATE_DATE
-#define UPDATE_DATE "2022-06-13"
+#define UPDATE_DATE "2022-06-15"
 #endif
 
 #ifndef CLEAR
