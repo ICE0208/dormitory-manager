@@ -111,7 +111,7 @@ void deleteDong() {
 
     char dongName[TEXTMAX] = {'\0',};
     strcpy(dongName, getDongName(selected));
-    printf("\n%s를 삭제하시겠습니다?\n[y] 예   [다른값] 아니오\n\n입력 > ", dongName);
+    printf("\n%s를 삭제하시겠습니까?\n[y] 예   [다른값] 아니오\n\n입력 > ", dongName);
     char confirm;
     scanf("%c", &confirm);
     clearBuffer();
@@ -288,7 +288,7 @@ void changeDongIndex() {
     if (confirm == 'y') {
         changeDong(target_1, target_2); // 변경하고
         saveAllInfo(); // 파일에 저장
-        printf("변경이 완료되었습니다..\n아무 키나 누르면 돌아갑니다.");
+        printf("변경이 완료되었습니다.\n아무 키나 누르면 돌아갑니다.");
         getch();
         return;
     }
